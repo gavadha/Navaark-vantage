@@ -1,0 +1,74 @@
+{
+  "brand_slug": "pet",
+  "brand_name": "Paws & Plains",
+  "display_name": "Paws & Plains",
+  "category": "Pet",
+  "tagline": "Premium pet food & treats — kibble, freeze-dried treats, cat pâté",
+  "currency": "USD",
+  "date_range": "2026-05-18 to 2026-11-15",
+  "data_as_of": "2026-11-15",
+  "sample_data": true,
+  "channels": [
+    {
+      "name": "Walmart",
+      "color": "#0071ce",
+      "stores": 2400
+    },
+    {
+      "name": "Amazon",
+      "color": "#ff9900",
+      "stores": 1
+    },
+    {
+      "name": "Target",
+      "color": "#cc0000",
+      "stores": 900
+    },
+    {
+      "name": "DTC",
+      "color": "#0e7c7b",
+      "stores": 1
+    }
+  ],
+  "channel_colors": {
+    "Walmart": "#0071ce",
+    "Amazon": "#ff9900",
+    "Target": "#cc0000",
+    "DTC": "#0e7c7b"
+  },
+  "kpis": [
+    "total_sales",
+    "units",
+    "velocity",
+    "weeks_of_supply",
+    "otif_pct",
+    "deductions"
+  ],
+  "products": [
+    {
+      "sku": "PP-KIB-GF",
+      "name": "Grain-Free Kibble 12lb",
+      "price": 42.99
+    },
+    {
+      "sku": "PP-TRT-FD",
+      "name": "Freeze-Dried Treats",
+      "price": 14.99
+    },
+    {
+      "sku": "PP-CAT-PAT",
+      "name": "Wet Cat Pâté",
+      "price": 1.49
+    },
+    {
+      "sku": "PP-LIT-CLU",
+      "name": "Clumping Litter 20lb",
+      "price": 18.99
+    },
+    {
+      "sku": "PP-CHW-STK",
+      "name": "Chew Sticks",
+      "price": 9.99
+    }
+  ]
+}

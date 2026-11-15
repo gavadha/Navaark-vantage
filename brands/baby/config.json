@@ -1,0 +1,74 @@
+{
+  "brand_slug": "baby",
+  "brand_name": "Little Sprout",
+  "display_name": "Little Sprout",
+  "category": "Baby / Kids",
+  "tagline": "Clean baby essentials — diapers, wipes, organic pouches",
+  "currency": "USD",
+  "date_range": "2026-05-18 to 2026-11-15",
+  "data_as_of": "2026-11-15",
+  "sample_data": true,
+  "channels": [
+    {
+      "name": "Walmart",
+      "color": "#0071ce",
+      "stores": 2400
+    },
+    {
+      "name": "Amazon",
+      "color": "#ff9900",
+      "stores": 1
+    },
+    {
+      "name": "Target",
+      "color": "#cc0000",
+      "stores": 900
+    },
+    {
+      "name": "DTC",
+      "color": "#0e7c7b",
+      "stores": 1
+    }
+  ],
+  "channel_colors": {
+    "Walmart": "#0071ce",
+    "Amazon": "#ff9900",
+    "Target": "#cc0000",
+    "DTC": "#0e7c7b"
+  },
+  "kpis": [
+    "total_sales",
+    "units",
+    "velocity",
+    "weeks_of_supply",
+    "otif_pct",
+    "deductions"
+  ],
+  "products": [
+    {
+      "sku": "LS-DIA-S3",
+      "name": "Diapers Size 3",
+      "price": 24.99
+    },
+    {
+      "sku": "LS-DIA-S4",
+      "name": "Diapers Size 4",
+      "price": 24.99
+    },
+    {
+      "sku": "LS-WIP-SEN",
+      "name": "Sensitive Wipes 72ct",
+      "price": 7.99
+    },
+    {
+      "sku": "LS-POU-ORG",
+      "name": "Organic Pouches 4pk",
+      "price": 6.49
+    },
+    {
+      "sku": "LS-SNK-TOD",
+      "name": "Toddler Snacks",
+      "price": 4.99
+    }
+  ]
+}

@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vantage by Navaark — See every channel. See what's next.</title>
+<meta name="description" content="Vantage by Navaark — one view of sales across Walmart, Amazon, Target, DTC and distributors, with predictions.">
+<link rel="stylesheet" href="assets/css/style.css">
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+</head>
+<body>
+<div class="topbar"><div class="wrap">
+  <div class="brandmark">Vantage <span>by Navaark</span></div>
+  <div class="tagline">See every channel. See what's next.</div>
+</div></div>
+
+<div class="wrap">
+  <header class="hero">
+    <p class="muted" id="brand-category">Loading…</p>
+    <h1 id="headline">Loading the Vantage dashboard…</h1>
+    <p class="sub"><strong id="brand-name"></strong> · <span id="date-range"></span> · <span id="data-as-of"></span></p>
+    <div class="controls">
+      <div><label for="brand-select">Demo brand / category</label>
+        <select id="brand-select"></select></div>
+      <div><label for="channel-select">Channel</label>
+        <select id="channel-select"></select></div>
+      <div><label>&nbsp;</label>
+        <button onclick="window.print()">Print / save as PDF</button></div>
+    </div>
+    <p class="muted">Many brands use this framework — your data drops into the same framework, with your channels, SKUs and definitions. No portal credentials are needed to view this demo.</p>
+  </header>
+
+  <nav class="tabs" aria-label="Departments">
+    <button class="tab active" data-tab="sales">Sales</button>
+    <button class="tab" data-tab="inventory">Inventory &amp; Supply Chain</button>
+    <button class="tab" data-tab="finance">Finance — OTIF &amp; Deductions</button>
+  </nav>
+
+  <section data-panel="sales">
+    <div class="kpis" id="kpis"></div>
+
+    <div class="card">
+      <h2>52-week sales trend by channel, vs prior year</h2>
+      <p class="muted">Line chart, bars start at zero. Prior year is the dashed grey line — one axis, no dual axes.</p>
+      <canvas id="trend-chart" height="120" aria-label="Sales trend chart"></canvas>
+    </div>
+
+    <div class="card">
+      <h2>Channel scorecard</h2>
+      <table>
+        <thead><tr><th>Channel</th><th class="num">Sales $</th><th class="num">Share</th><th class="num">YoY</th><th class="num">Units</th><th class="num">Velocity</th><th class="num">In-stock %</th><th class="num">OTIF %</th></tr></thead>
+        <tbody id="scorecard-body"></tbody>
+      </table>
+    </div>
+
+    <div class="grid2">
+      <div class="card">
+        <h2>Products by sales — variance vs plan</h2>
+        <p class="muted">Top products first. Green = ahead of plan, red = behind plan.</p>
+        <div id="products"></div>
+      </div>
+      <div class="card">
+        <h2>What changed this week</h2>
+        <div class="callouts" id="changes" style="grid-template-columns:1fr"></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>Exceptions — SKU × channel × week</h2>
+      <p class="muted">Sortable in a spreadsheet export; in the demo, the highest-impact exceptions are listed first.</p>
+      <table>
+        <thead><tr><th>SKU</th><th>Product</th><th>Channel</th><th>Week</th><th>Issue</th><th>Next action</th></tr></thead>
+        <tbody id="exceptions-body"></tbody>
+      </table>
+    </div>
+  </section>
+
+  <section data-panel="inventory" style="display:none">
+    <div class="card">
+      <h2>Inventory &amp; Supply Chain</h2>
+      <p id="inv-summary"></p>
+      <h3>Stockout-risk SKUs (weeks of supply below 2)</h3>
+      <ul id="stockout-risk"></ul>
+      <p class="muted">Weeks of supply = inventory on hand ÷ average weekly units. In-stock % is the share of expected facings / listings in stock that week. See <a href="docs/data-dictionary.md">data dictionary</a>.</p>
+    </div>
+    <div class="card">
+      <h2>Channel scorecard — inventory view</h2>
+      <p class="muted">Same scorecard as Sales, filtered by the channel selector above. Use it to compare weeks of supply and in-stock % by channel before reordering.</p>
+      <table>
+        <thead><tr><th>Channel</th><th class="num">Sales $</th><th class="num">Share</th><th class="num">YoY</th><th class="num">Units</th><th class="num">Velocity</th><th class="num">In-stock %</th><th class="num">OTIF %</th></tr></thead>
+        <tbody id="scorecard-body-inv"></tbody>
+      </table>
+    </div>
+  </section>
+
+  <section data-panel="finance" style="display:none">
+    <div class="card">
+      <h2>Finance — OTIF &amp; Deductions</h2>
+      <p id="fin-summary"></p>
+      <p>OTIF = on-time, in-full — the share of orders delivered on time and in full. Deductions are shown as $ and as % of sales, with the reason in the exceptions table (shortage, compliance, damaged / returns). Pull deduction detail by PO before disputing — do not dispute from the dashboard total alone.</p>
+      <p class="muted">Distributor movement (UNFI / KeHE) is shipments out of the distributor, not register sales. Never mix it with Walmart / Target sell-through in the same total without labelling it.</p>
+    </div>
+  </section>
+
+  <div class="card">
+    <h2>Vantage — what's next</h2>
+    <p id="forecast-total"></p>
+    <table>
+      <thead><tr><th>Channel</th><th class="num">Next 4 weeks — forecast sales</th><th>Confidence</th><th>Risk</th></tr></thead>
+      <tbody id="forecast-body"></tbody>
+    </table>
+    <p class="muted">Forecast method in this demo: last 4-week average × seasonal trend × growth. It is a forecast from the sample trend, not a guarantee. With real client data, Vantage uses the same unified model plus the client's own seasonality, promo calendar and inventory position.</p>
+  </div>
+
+  <div class="card">
+    <h2>How each KPI is defined</h2>
+    <details open>
+      <summary>Definitions (one line each)</summary>
+      <ul>
+        <li><strong>Total sales $</strong> — net sales in the period, by channel, in the brand currency.</li>
+        <li><strong>Units</strong> — units sold in the period.</li>
+        <li><strong>Velocity (units/store/week)</strong> — units ÷ stores carrying the item ÷ weeks. For Amazon / DTC, shown as units per 100 orders in the underlying data — see the data dictionary.</li>
+        <li><strong>Weeks of supply</strong> — inventory on hand ÷ average weekly units.</li>
+        <li><strong>In-stock %</strong> — share of expected facings / listings in stock.</li>
+        <li><strong>OTIF %</strong> — on-time, in-full orders ÷ all orders.</li>
+        <li><strong>Deductions $</strong> — retailer / distributor deductions in the period, by reason where available.</li>
+      </ul>
+      <p>Full definitions, field list and channel mapping: <a href="docs/data-dictionary.md">docs/data-dictionary.md</a></p>
+    </details>
+  </div>
+
+  <footer>
+    <p><strong>Vantage by Navaark</strong> — one view of sales across Walmart, Amazon, Target, DTC and distributors, with predictions. One-time setup for $5M–$100M CPG brands.</p>
+    <p>Sample data in the Vantage framework — your data drops into the same framework. No client names, testimonials or specific client results are shown in this demo.</p>
+    <p><a href="README.md">README</a> · <a href="docs/data-dictionary.md">Data dictionary</a> · <a href="docs/deploy.md">Deploy</a> · <a href="docs/customize.md">Add a customer</a></p>
+  </footer>
+</div>
+
+<script src="assets/js/app.js"></script>
+<script>
+// Inventory tab reuses the same scorecard body — copy it once data is rendered.
+document.addEventListener("click", function (e) {
+  if (e.target && e.target.dataset && e.target.dataset.tab === "inventory") {
+    var src = document.getElementById("scorecard-body");
+    var dst = document.getElementById("scorecard-body-inv");
+    if (src && dst) dst.innerHTML = src.innerHTML;
+  }
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,74 @@
+{
+  "brand_slug": "health-beauty",
+  "brand_name": "Lumen Botanicals",
+  "display_name": "Lumen Botanicals",
+  "category": "Health & Beauty",
+  "tagline": "Clean skincare — vitamin C serum, moisturizer, shampoo bars",
+  "currency": "USD",
+  "date_range": "2026-05-18 to 2026-11-15",
+  "data_as_of": "2026-11-15",
+  "sample_data": true,
+  "channels": [
+    {
+      "name": "Walmart",
+      "color": "#0071ce",
+      "stores": 2400
+    },
+    {
+      "name": "Amazon",
+      "color": "#ff9900",
+      "stores": 1
+    },
+    {
+      "name": "Target",
+      "color": "#cc0000",
+      "stores": 900
+    },
+    {
+      "name": "DTC",
+      "color": "#0e7c7b",
+      "stores": 1
+    }
+  ],
+  "channel_colors": {
+    "Walmart": "#0071ce",
+    "Amazon": "#ff9900",
+    "Target": "#cc0000",
+    "DTC": "#0e7c7b"
+  },
+  "kpis": [
+    "total_sales",
+    "units",
+    "velocity",
+    "weeks_of_supply",
+    "otif_pct",
+    "deductions"
+  ],
+  "products": [
+    {
+      "sku": "LB-VC-SER",
+      "name": "Vitamin C Serum 30ml",
+      "price": 28.0
+    },
+    {
+      "sku": "LB-MOI-SPF",
+      "name": "Moisturizer SPF 30",
+      "price": 24.0
+    },
+    {
+      "sku": "LB-SHA-BAR",
+      "name": "Shampoo Bar",
+      "price": 14.0
+    },
+    {
+      "sku": "LB-DEO-SEN",
+      "name": "Sensitive Deodorant",
+      "price": 12.0
+    },
+    {
+      "sku": "LB-CLN-GEL",
+      "name": "Gentle Cleanser",
+      "price": 18.0
+    }
+  ]
+}

@@ -1,0 +1,7 @@
+# Vantage by Navaark — minimal ignore list.
+# Keep everything needed to run the demo in git.
+# Never commit portal credentials, API keys, tokens, or real client exports
+# that are not meant to be shared — keep those out of this repo entirely.
+.DS_Store
+Thumbs.db
+*.log

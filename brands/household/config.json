@@ -1,0 +1,74 @@
+{
+  "brand_slug": "household",
+  "brand_name": "BrightHome Co.",
+  "display_name": "BrightHome Co.",
+  "category": "Household / Cleaning",
+  "tagline": "Eco cleaning concentrates — laundry sheets, dish pods, spray",
+  "currency": "USD",
+  "date_range": "2026-05-18 to 2026-11-15",
+  "data_as_of": "2026-11-15",
+  "sample_data": true,
+  "channels": [
+    {
+      "name": "Walmart",
+      "color": "#0071ce",
+      "stores": 2400
+    },
+    {
+      "name": "Amazon",
+      "color": "#ff9900",
+      "stores": 1
+    },
+    {
+      "name": "Target",
+      "color": "#cc0000",
+      "stores": 900
+    },
+    {
+      "name": "DTC",
+      "color": "#0e7c7b",
+      "stores": 1
+    }
+  ],
+  "channel_colors": {
+    "Walmart": "#0071ce",
+    "Amazon": "#ff9900",
+    "Target": "#cc0000",
+    "DTC": "#0e7c7b"
+  },
+  "kpis": [
+    "total_sales",
+    "units",
+    "velocity",
+    "weeks_of_supply",
+    "otif_pct",
+    "deductions"
+  ],
+  "products": [
+    {
+      "sku": "BH-LAU-SHT",
+      "name": "Laundry Detergent Sheets",
+      "price": 16.99
+    },
+    {
+      "sku": "BH-DSH-POD",
+      "name": "Dish Pods 40ct",
+      "price": 13.99
+    },
+    {
+      "sku": "BH-APR-SPR",
+      "name": "All-Purpose Spray Concentrate",
+      "price": 9.99
+    },
+    {
+      "sku": "BH-PAP-WIP",
+      "name": "Paper Towels / Wipes",
+      "price": 7.99
+    },
+    {
+      "sku": "BH-FLR-CLN",
+      "name": "Floor Cleaner Concentrate",
+      "price": 11.99
+    }
+  ]
+}

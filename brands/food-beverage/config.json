@@ -1,0 +1,95 @@
+{
+  "brand_slug": "food-beverage",
+  "brand_name": "Golden Hour Snacks",
+  "display_name": "Golden Hour Snacks",
+  "category": "Food & Beverage",
+  "tagline": "Better-for-you snacks — protein bars, sparkling water, prebiotic soda",
+  "currency": "USD",
+  "date_range": "2025-11-17 to 2026-11-15",
+  "data_as_of": "2026-11-15",
+  "sample_data": true,
+  "channels": [
+    {
+      "name": "Walmart",
+      "color": "#0071ce",
+      "stores": 2400
+    },
+    {
+      "name": "Amazon",
+      "color": "#ff9900",
+      "stores": 1
+    },
+    {
+      "name": "Target",
+      "color": "#cc0000",
+      "stores": 900
+    },
+    {
+      "name": "DTC",
+      "color": "#0e7c7b",
+      "stores": 1
+    },
+    {
+      "name": "Distributor",
+      "color": "#6b7280",
+      "stores": 1
+    }
+  ],
+  "channel_colors": {
+    "Walmart": "#0071ce",
+    "Amazon": "#ff9900",
+    "Target": "#cc0000",
+    "DTC": "#0e7c7b",
+    "Distributor": "#6b7280"
+  },
+  "kpis": [
+    "total_sales",
+    "units",
+    "velocity",
+    "weeks_of_supply",
+    "otif_pct",
+    "deductions"
+  ],
+  "products": [
+    {
+      "sku": "GH-PB-CHO",
+      "name": "Protein Bar — Chocolate",
+      "price": 3.49
+    },
+    {
+      "sku": "GH-PB-PB",
+      "name": "Protein Bar — Peanut Butter",
+      "price": 3.49
+    },
+    {
+      "sku": "GH-PB-BER",
+      "name": "Protein Bar — Berry",
+      "price": 3.49
+    },
+    {
+      "sku": "GH-SW-LIM",
+      "name": "Sparkling Water — Lime",
+      "price": 1.99
+    },
+    {
+      "sku": "GH-SW-BER",
+      "name": "Sparkling Water — Berry",
+      "price": 1.99
+    },
+    {
+      "sku": "GH-PS-COL",
+      "name": "Prebiotic Soda — Cola",
+      "price": 2.49
+    },
+    {
+      "sku": "GH-PS-GIN",
+      "name": "Prebiotic Soda — Ginger",
+      "price": 2.49
+    },
+    {
+      "sku": "GH-TM-MIX",
+      "name": "Trail Mix — Nut Clusters",
+      "price": 4.99
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "brands": [
+    {"slug": "food-beverage", "label": "Food & Beverage"},
+    {"slug": "health-beauty", "label": "Health & Beauty"},
+    {"slug": "household", "label": "Household"},
+    {"slug": "pet", "label": "Pet"},
+    {"slug": "baby", "label": "Baby"}
+  ]
+}
