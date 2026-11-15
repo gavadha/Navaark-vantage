@@ -199,7 +199,7 @@
     var ded = rows.reduce(function (a, r) { return a + r.deductions; }, 0);
     var sales = rows.reduce(function (a, r) { return a + r.sales; }, 0);
     $("fin-summary").textContent = "Deductions " + fmtMoney(ded) + " (" + (ded / Math.max(sales, 1) * 100).toFixed(2) + "% of sales) · average OTIF " +
-      avg(rows.map(function (r) { return r.otif_pct; })).toFixed(1) + "%. Distributor movement is shipments out of the distributor, not register sales — see the data dictionary.";
+      avg(rows.map(function (r) { return r.otif_pct; })).toFixed(1) + "%. Distributor movement is shipments out of the distributor, not register sales.";
   }
 
   function renderAll() {

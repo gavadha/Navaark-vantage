@@ -11,6 +11,7 @@ a { color:var(--teal); }
 .topbar { background:var(--ink); color:#fff; padding:14px 0; }
 .topbar .wrap { display:flex; justify-content:space-between; align-items:baseline; gap:16px; padding-bottom:0; flex-wrap:wrap; }
 .brandmark { font-weight:800; font-size:20px; letter-spacing:.2px; }
+.brandmark a { color:#fff; text-decoration:none; }
 .brandmark span { font-weight:400; opacity:.85; }
 .tagline { font-size:13px; opacity:.85; }
 header.hero { padding:22px 0 8px; }
