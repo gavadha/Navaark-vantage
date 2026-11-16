@@ -39,6 +39,15 @@ button { cursor:pointer; }
 .btn-sm { padding:6px 10px; font-size:13px; }
 th.sortable { cursor:pointer; white-space:nowrap; }
 th.sortable:hover { color:var(--ink); }
+#scorecard-body tr { cursor:pointer; }
+#scorecard-body tr:hover { background:#eef6f6; }
+.linklike { background:none; border:none; padding:0; color:var(--teal); text-decoration:underline; font-size:14px; }
+.store-row { cursor:pointer; }
+.store-row:hover { background:#eef6f6; }
+.store-detail td { background:#f8fafc; }
+.store-detail table { margin:8px 0 4px; }
+th.drill-sortable { cursor:pointer; white-space:nowrap; }
+th.drill-sortable:hover { color:var(--ink); }
 th .sort-ind { font-size:11px; margin-left:2px; }
 .card h3 { font-size:15px; margin:18px 0 8px; }
 .card p { margin:6px 0; }

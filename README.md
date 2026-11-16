@@ -31,7 +31,8 @@ Try the demo brands with the dropdown, or with a URL:
 - `index.html` — the dashboard (one executive page)
 - `assets/css/style.css`, `assets/js/app.js` — plain CSS + vanilla JS, Chart.js via CDN
 - `brands/<slug>/config.json` — brand name, category, channels, channel colours, products
-- `brands/<slug>/data.json` — weekly data in the unified schema, product summary, exceptions, 4-week forecast, "what changed this week"
+- `brands/<slug>/data.json` — weekly data in the unified schema, product summary, exceptions, 4-week forecast, "what changed this week", plus store drill-down data (`stores` and `channel_products`)
+- `tools/generate-stores.py` — builds the store drill-down data from the weekly totals (store sales sum to the channel total, to the dollar). Deterministic: re-running it reproduces the same files. Run it after editing any brand's weekly data, then check the printed reconciliation lines.
 - `brands/index.json` — the list of demo brands shown in the switcher
 - `docs/data-dictionary.md` — unified model, field + KPI definitions, channel mapping
 - `docs/deploy.md` — GitHub Pages + local run

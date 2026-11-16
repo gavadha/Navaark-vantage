@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "brand_slug": "household",
-  "headline": "Sales up 6% vs last year — Walmart led, one SKU at stockout risk",
+  "headline": "Sales up 6% vs last year \u2014 Walmart led, one SKU at stockout risk",
   "weekly": [
     {
       "week": 1,
@@ -1627,7 +1627,7 @@
       "product": "Dish Pods 40ct",
       "channel": "Walmart",
       "week": "FY26-W14",
-      "issue": "Stockout — in-stock 81%, 2 weeks of lost sales",
+      "issue": "Stockout \u2014 in-stock 81%, 2 weeks of lost sales",
       "units_lost_est": 1840,
       "action": "Expedite replenishment; check DC allocation"
     },
@@ -1636,7 +1636,7 @@
       "product": "Paper Towels / Wipes",
       "channel": "Target",
       "week": "FY26-W16",
-      "issue": "Deduction spike — shortage / compliance deductions up 2.1% of sales",
+      "issue": "Deduction spike \u2014 shortage / compliance deductions up 2.1% of sales",
       "units_lost_est": 0,
       "action": "Pull deduction detail by PO; dispute invalid shortages"
     },
@@ -1645,7 +1645,7 @@
       "product": "Laundry Detergent Sheets",
       "channel": "Amazon",
       "week": "FY26-W20",
-      "issue": "Velocity down 12% vs prior year — Buy Box lost 3 days",
+      "issue": "Velocity down 12% vs prior year \u2014 Buy Box lost 3 days",
       "units_lost_est": 620,
       "action": "Check price vs competitors; restore Buy Box"
     },
@@ -1654,7 +1654,7 @@
       "product": "All-Purpose Spray Concentrate",
       "channel": "DTC",
       "week": "FY26-W18",
-      "issue": "Weeks of supply 1.2 — at risk of stockout in 2 weeks",
+      "issue": "Weeks of supply 1.2 \u2014 at risk of stockout in 2 weeks",
       "units_lost_est": 0,
       "action": "Raise next order; confirm distributor inventory"
     }
@@ -1663,31 +1663,31 @@
     {
       "channel": "Walmart",
       "next_4w_sales_forecast": 151772.49,
-      "confidence": "Moderate — trend + seasonality, 4-week horizon",
+      "confidence": "Moderate \u2014 trend + seasonality, 4-week horizon",
       "risk": "Stockout risk"
     },
     {
       "channel": "Amazon",
       "next_4w_sales_forecast": 86727.14,
-      "confidence": "Moderate — trend + seasonality, 4-week horizon",
+      "confidence": "Moderate \u2014 trend + seasonality, 4-week horizon",
       "risk": "Stable"
     },
     {
       "channel": "Target",
       "next_4w_sales_forecast": 57818.09,
-      "confidence": "Moderate — trend + seasonality, 4-week horizon",
+      "confidence": "Moderate \u2014 trend + seasonality, 4-week horizon",
       "risk": "Stockout risk"
     },
     {
       "channel": "DTC",
       "next_4w_sales_forecast": 36136.3,
-      "confidence": "Moderate — trend + seasonality, 4-week horizon",
+      "confidence": "Moderate \u2014 trend + seasonality, 4-week horizon",
       "risk": "Stable"
     }
   ],
   "what_changed": [
     {
-      "title": "Sales up 6% vs last year — Walmart led",
+      "title": "Sales up 6% vs last year \u2014 Walmart led",
       "detail": "Growth is broad-based across channels, with the top SKU outperforming plan.",
       "action": "Hold current promo cadence; protect top-SKU inventory."
     },
@@ -1698,9 +1698,601 @@
     },
     {
       "title": "Deductions ticked up in one channel",
-      "detail": "A small deduction spike appeared in the last 4 weeks — mostly shortage claims.",
+      "detail": "A small deduction spike appeared in the last 4 weeks \u2014 mostly shortage claims.",
       "action": "Pull deduction detail by PO before disputing."
     }
   ],
-  "notes": "Sample data in the Vantage framework — your data drops into the same framework."
+  "notes": "Sample data in the Vantage framework \u2014 your data drops into the same framework.",
+  "stores": [
+    {
+      "id": "WM-001",
+      "name": "Walmart Supercenter - Houston, TX",
+      "city": "Houston",
+      "state": "TX",
+      "channel": "Walmart",
+      "sales": 69952,
+      "units": 10606,
+      "in_stock_pct": 92.6,
+      "velocity_upsw": 0.7,
+      "weeks_of_supply": 3.6,
+      "top_skus": [
+        {
+          "sku": "BH-LAU-SHT",
+          "product": "Laundry Detergent Sheets",
+          "sales": 21260,
+          "units": 2558
+        },
+        {
+          "sku": "BH-PAP-WIP",
+          "product": "Paper Towels / Wipes",
+          "sales": 15843,
+          "units": 2187
+        },
+        {
+          "sku": "BH-DSH-POD",
+          "product": "Dish Pods 40ct",
+          "sales": 14082,
+          "units": 1820
+        }
+      ]
+    },
+    {
+      "id": "WM-002",
+      "name": "Walmart Supercenter - Atlanta, GA",
+      "city": "Atlanta",
+      "state": "GA",
+      "channel": "Walmart",
+      "sales": 67280,
+      "units": 7344,
+      "in_stock_pct": 94.6,
+      "velocity_upsw": 1.0,
+      "weeks_of_supply": 2.9,
+      "top_skus": [
+        {
+          "sku": "BH-LAU-SHT",
+          "product": "Laundry Detergent Sheets",
+          "sales": 15267,
+          "units": 1645
+        },
+        {
+          "sku": "BH-DSH-POD",
+          "product": "Dish Pods 40ct",
+          "sales": 15119,
+          "units": 1687
+        },
+        {
+          "sku": "BH-APR-SPR",
+          "product": "All-Purpose Spray Concentrate",
+          "sales": 14280,
+          "units": 1754
+        }
+      ]
+    },
+    {
+      "id": "WM-003",
+      "name": "Walmart Supercenter - Chicago, IL",
+      "city": "Chicago",
+      "state": "IL",
+      "channel": "Walmart",
+      "sales": 71034,
+      "units": 12846,
+      "in_stock_pct": 95.1,
+      "velocity_upsw": 1.6,
+      "weeks_of_supply": 3.8,
+      "top_skus": [
+        {
+          "sku": "BH-LAU-SHT",
+          "product": "Laundry Detergent Sheets",
+          "sales": 20629,
+          "units": 1880
+        },
+        {
+          "sku": "BH-DSH-POD",
+          "product": "Dish Pods 40ct",
+          "sales": 18661,
+          "units": 3393
+        },
+        {
+          "sku": "BH-APR-SPR",
+          "product": "All-Purpose Spray Concentrate",
+          "sales": 12194,
+          "units": 2367
+        }
+      ]
+    },
+    {
+      "id": "WM-004",
+      "name": "Walmart Supercenter - Phoenix, AZ",
+      "city": "Phoenix",
+      "state": "AZ",
+      "channel": "Walmart",
+      "sales": 165105,
+      "units": 8440,
+      "in_stock_pct": 96.7,
+      "velocity_upsw": 0.9,
+      "weeks_of_supply": 3.3,
+      "top_skus": [
+        {
+          "sku": "BH-DSH-POD",
+          "product": "Dish Pods 40ct",
+          "sales": 43406,
+          "units": 1679
+        },
+        {
+          "sku": "BH-LAU-SHT",
+          "product": "Laundry Detergent Sheets",
+          "sales": 41918,
+          "units": 1621
+        },
+        {
+          "sku": "BH-PAP-WIP",
+          "product": "Paper Towels / Wipes",
+          "sales": 31325,
+          "units": 2033
+        }
+      ]
+    },
+    {
+      "id": "WM-005",
+      "name": "Walmart Supercenter - Tampa, FL",
+      "city": "Tampa",
+      "state": "FL",
+      "channel": "Walmart",
+      "sales": 131124,
+      "units": 6334,
+      "in_stock_pct": 89.8,
+      "velocity_upsw": 1.8,
+      "weeks_of_supply": 3.1,
+      "top_skus": [
+        {
+          "sku": "BH-APR-SPR",
+          "product": "All-Purpose Spray Concentrate",
+          "sales": 31970,
+          "units": 1549
+        },
+        {
+          "sku": "BH-DSH-POD",
+          "product": "Dish Pods 40ct",
+          "sales": 28376,
+          "units": 1116
+        },
+        {
+          "sku": "BH-LAU-SHT",
+          "product": "Laundry Detergent Sheets",
+          "sales": 27178,
+          "units": 1343
+        }
+      ]
+    },
+    {
+      "id": "WM-006",
+      "name": "Walmart Supercenter - Denver, CO",
+      "city": "Denver",
+      "state": "CO",
+      "channel": "Walmart",
+      "sales": 83667,
+      "units": 4811,
+      "in_stock_pct": 96.2,
+      "velocity_upsw": 0.8,
+      "weeks_of_supply": 3.3,
+      "top_skus": [
+        {
+          "sku": "BH-LAU-SHT",
+          "product": "Laundry Detergent Sheets",
+          "sales": 24749,
+          "units": 741
+        },
+        {
+          "sku": "BH-APR-SPR",
+          "product": "All-Purpose Spray Concentrate",
+          "sales": 19651,
+          "units": 1149
+        },
+        {
+          "sku": "BH-PAP-WIP",
+          "product": "Paper Towels / Wipes",
+          "sales": 14999,
+          "units": 1133
+        }
+      ]
+    },
+    {
+      "id": "WM-007",
+      "name": "Walmart Supercenter - Minneapolis, MN",
+      "city": "Minneapolis",
+      "state": "MN",
+      "channel": "Walmart",
+      "sales": 158690,
+      "units": 12701,
+      "in_stock_pct": 95.0,
+      "velocity_upsw": 1.0,
+      "weeks_of_supply": 4.2,
+      "top_skus": [
+        {
+          "sku": "BH-DSH-POD",
+          "product": "Dish Pods 40ct",
+          "sales": 46039,
+          "units": 1926
+        },
+        {
+          "sku": "BH-LAU-SHT",
+          "product": "Laundry Detergent Sheets",
+          "sales": 33109,
+          "units": 1704
+        },
+        {
+          "sku": "BH-APR-SPR",
+          "product": "All-Purpose Spray Concentrate",
+          "sales": 28616,
+          "units": 2991
+        }
+      ]
+    },
+    {
+      "id": "WM-008",
+      "name": "Walmart Supercenter - Rogers, AR",
+      "city": "Rogers",
+      "state": "AR",
+      "channel": "Walmart",
+      "sales": 177799,
+      "units": 9985,
+      "in_stock_pct": 92.3,
+      "velocity_upsw": 1.6,
+      "weeks_of_supply": 3.3,
+      "top_skus": [
+        {
+          "sku": "BH-DSH-POD",
+          "product": "Dish Pods 40ct",
+          "sales": 46496,
+          "units": 2667
+        },
+        {
+          "sku": "BH-APR-SPR",
+          "product": "All-Purpose Spray Concentrate",
+          "sales": 43611,
+          "units": 2100
+        },
+        {
+          "sku": "BH-LAU-SHT",
+          "product": "Laundry Detergent Sheets",
+          "sales": 34561,
+          "units": 1398
+        }
+      ]
+    },
+    {
+      "id": "TG-001",
+      "name": "Target - Denver, CO",
+      "city": "Denver",
+      "state": "CO",
+      "channel": "Target",
+      "sales": 48561,
+      "units": 5591,
+      "in_stock_pct": 91.8,
+      "velocity_upsw": 1.8,
+      "weeks_of_supply": 3.6,
+      "top_skus": [
+        {
+          "sku": "BH-DSH-POD",
+          "product": "Dish Pods 40ct",
+          "sales": 11498,
+          "units": 1130
+        },
+        {
+          "sku": "BH-PAP-WIP",
+          "product": "Paper Towels / Wipes",
+          "sales": 10709,
+          "units": 1382
+        },
+        {
+          "sku": "BH-APR-SPR",
+          "product": "All-Purpose Spray Concentrate",
+          "sales": 9566,
+          "units": 1433
+        }
+      ]
+    },
+    {
+      "id": "TG-002",
+      "name": "Target - Minneapolis, MN",
+      "city": "Minneapolis",
+      "state": "MN",
+      "channel": "Target",
+      "sales": 83233,
+      "units": 3549,
+      "in_stock_pct": 91.9,
+      "velocity_upsw": 1.6,
+      "weeks_of_supply": 3.3,
+      "top_skus": [
+        {
+          "sku": "BH-LAU-SHT",
+          "product": "Laundry Detergent Sheets",
+          "sales": 24091,
+          "units": 758
+        },
+        {
+          "sku": "BH-DSH-POD",
+          "product": "Dish Pods 40ct",
+          "sales": 21503,
+          "units": 505
+        },
+        {
+          "sku": "BH-APR-SPR",
+          "product": "All-Purpose Spray Concentrate",
+          "sales": 15559,
+          "units": 1037
+        }
+      ]
+    },
+    {
+      "id": "TG-003",
+      "name": "Target - Dallas, TX",
+      "city": "Dallas",
+      "state": "TX",
+      "channel": "Target",
+      "sales": 53923,
+      "units": 4759,
+      "in_stock_pct": 89.5,
+      "velocity_upsw": 0.8,
+      "weeks_of_supply": 3.6,
+      "top_skus": [
+        {
+          "sku": "BH-LAU-SHT",
+          "product": "Laundry Detergent Sheets",
+          "sales": 16059,
+          "units": 956
+        },
+        {
+          "sku": "BH-PAP-WIP",
+          "product": "Paper Towels / Wipes",
+          "sales": 11252,
+          "units": 1100
+        },
+        {
+          "sku": "BH-DSH-POD",
+          "product": "Dish Pods 40ct",
+          "sales": 9724,
+          "units": 913
+        }
+      ]
+    },
+    {
+      "id": "TG-004",
+      "name": "Target - Chicago, IL",
+      "city": "Chicago",
+      "state": "IL",
+      "channel": "Target",
+      "sales": 52743,
+      "units": 4636,
+      "in_stock_pct": 95.8,
+      "velocity_upsw": 0.8,
+      "weeks_of_supply": 2.5,
+      "top_skus": [
+        {
+          "sku": "BH-LAU-SHT",
+          "product": "Laundry Detergent Sheets",
+          "sales": 13263,
+          "units": 953
+        },
+        {
+          "sku": "BH-DSH-POD",
+          "product": "Dish Pods 40ct",
+          "sales": 13239,
+          "units": 911
+        },
+        {
+          "sku": "BH-APR-SPR",
+          "product": "All-Purpose Spray Concentrate",
+          "sales": 12062,
+          "units": 1285
+        }
+      ]
+    },
+    {
+      "id": "TG-005",
+      "name": "Target - Atlanta, GA",
+      "city": "Atlanta",
+      "state": "GA",
+      "channel": "Target",
+      "sales": 73502,
+      "units": 5124,
+      "in_stock_pct": 97.0,
+      "velocity_upsw": 0.9,
+      "weeks_of_supply": 3.8,
+      "top_skus": [
+        {
+          "sku": "BH-LAU-SHT",
+          "product": "Laundry Detergent Sheets",
+          "sales": 20500,
+          "units": 715
+        },
+        {
+          "sku": "BH-DSH-POD",
+          "product": "Dish Pods 40ct",
+          "sales": 15556,
+          "units": 998
+        },
+        {
+          "sku": "BH-APR-SPR",
+          "product": "All-Purpose Spray Concentrate",
+          "sales": 15043,
+          "units": 1287
+        }
+      ]
+    },
+    {
+      "id": "TG-006",
+      "name": "Target - Houston, TX",
+      "city": "Houston",
+      "state": "TX",
+      "channel": "Target",
+      "sales": 40286,
+      "units": 4165,
+      "in_stock_pct": 93.7,
+      "velocity_upsw": 1.3,
+      "weeks_of_supply": 3.7,
+      "top_skus": [
+        {
+          "sku": "BH-DSH-POD",
+          "product": "Dish Pods 40ct",
+          "sales": 9955,
+          "units": 613
+        },
+        {
+          "sku": "BH-LAU-SHT",
+          "product": "Laundry Detergent Sheets",
+          "sales": 8978,
+          "units": 827
+        },
+        {
+          "sku": "BH-PAP-WIP",
+          "product": "Paper Towels / Wipes",
+          "sales": 7847,
+          "units": 1213
+        }
+      ]
+    }
+  ],
+  "channel_products": [
+    {
+      "channel": "Amazon",
+      "products": [
+        {
+          "sku": "BH-LAU-SHT",
+          "product": "Laundry Detergent Sheets",
+          "sales": 136884,
+          "units": 7497
+        },
+        {
+          "sku": "BH-DSH-POD",
+          "product": "Dish Pods 40ct",
+          "sales": 123195,
+          "units": 8194
+        },
+        {
+          "sku": "BH-APR-SPR",
+          "product": "All-Purpose Spray Concentrate",
+          "sales": 104032,
+          "units": 9690
+        },
+        {
+          "sku": "BH-PAP-WIP",
+          "product": "Paper Towels / Wipes",
+          "sales": 93081,
+          "units": 10841
+        },
+        {
+          "sku": "BH-FLR-CLN",
+          "product": "Floor Cleaner Concentrate",
+          "sales": 71180,
+          "units": 5524
+        }
+      ]
+    },
+    {
+      "channel": "DTC",
+      "products": [
+        {
+          "sku": "BH-LAU-SHT",
+          "product": "Laundry Detergent Sheets",
+          "sales": 57035,
+          "units": 3122
+        },
+        {
+          "sku": "BH-DSH-POD",
+          "product": "Dish Pods 40ct",
+          "sales": 51331,
+          "units": 3412
+        },
+        {
+          "sku": "BH-APR-SPR",
+          "product": "All-Purpose Spray Concentrate",
+          "sales": 43347,
+          "units": 4035
+        },
+        {
+          "sku": "BH-PAP-WIP",
+          "product": "Paper Towels / Wipes",
+          "sales": 38784,
+          "units": 4514
+        },
+        {
+          "sku": "BH-FLR-CLN",
+          "product": "Floor Cleaner Concentrate",
+          "sales": 29658,
+          "units": 2300
+        }
+      ]
+    },
+    {
+      "channel": "Target",
+      "products": [
+        {
+          "sku": "BH-LAU-SHT",
+          "product": "Laundry Detergent Sheets",
+          "sales": 91256,
+          "units": 4997
+        },
+        {
+          "sku": "BH-DSH-POD",
+          "product": "Dish Pods 40ct",
+          "sales": 82130,
+          "units": 5462
+        },
+        {
+          "sku": "BH-APR-SPR",
+          "product": "All-Purpose Spray Concentrate",
+          "sales": 69355,
+          "units": 6458
+        },
+        {
+          "sku": "BH-PAP-WIP",
+          "product": "Paper Towels / Wipes",
+          "sales": 62054,
+          "units": 7225
+        },
+        {
+          "sku": "BH-FLR-CLN",
+          "product": "Floor Cleaner Concentrate",
+          "sales": 47453,
+          "units": 3682
+        }
+      ]
+    },
+    {
+      "channel": "Walmart",
+      "products": [
+        {
+          "sku": "BH-LAU-SHT",
+          "product": "Laundry Detergent Sheets",
+          "sales": 239547,
+          "units": 13122
+        },
+        {
+          "sku": "BH-DSH-POD",
+          "product": "Dish Pods 40ct",
+          "sales": 215592,
+          "units": 14342
+        },
+        {
+          "sku": "BH-APR-SPR",
+          "product": "All-Purpose Spray Concentrate",
+          "sales": 182056,
+          "units": 16960
+        },
+        {
+          "sku": "BH-PAP-WIP",
+          "product": "Paper Towels / Wipes",
+          "sales": 162892,
+          "units": 18974
+        },
+        {
+          "sku": "BH-FLR-CLN",
+          "product": "Floor Cleaner Concentrate",
+          "sales": 124564,
+          "units": 9669
+        }
+      ]
+    }
+  ]
 }

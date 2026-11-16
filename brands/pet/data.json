@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "brand_slug": "pet",
-  "headline": "Sales up 6% vs last year — Walmart led, one SKU at stockout risk",
+  "headline": "Sales up 6% vs last year \u2014 Walmart led, one SKU at stockout risk",
   "weekly": [
     {
       "week": 1,
@@ -1589,7 +1589,7 @@
     },
     {
       "sku": "PP-CAT-PAT",
-      "name": "Wet Cat Pâté",
+      "name": "Wet Cat P\u00e2t\u00e9",
       "price": 1.49,
       "sales": 444739.7,
       "units": 298483,
@@ -1627,7 +1627,7 @@
       "product": "Freeze-Dried Treats",
       "channel": "Walmart",
       "week": "FY26-W14",
-      "issue": "Stockout — in-stock 81%, 2 weeks of lost sales",
+      "issue": "Stockout \u2014 in-stock 81%, 2 weeks of lost sales",
       "units_lost_est": 1840,
       "action": "Expedite replenishment; check DC allocation"
     },
@@ -1636,7 +1636,7 @@
       "product": "Clumping Litter 20lb",
       "channel": "Target",
       "week": "FY26-W16",
-      "issue": "Deduction spike — shortage / compliance deductions up 2.1% of sales",
+      "issue": "Deduction spike \u2014 shortage / compliance deductions up 2.1% of sales",
       "units_lost_est": 0,
       "action": "Pull deduction detail by PO; dispute invalid shortages"
     },
@@ -1645,16 +1645,16 @@
       "product": "Grain-Free Kibble 12lb",
       "channel": "Amazon",
       "week": "FY26-W20",
-      "issue": "Velocity down 12% vs prior year — Buy Box lost 3 days",
+      "issue": "Velocity down 12% vs prior year \u2014 Buy Box lost 3 days",
       "units_lost_est": 620,
       "action": "Check price vs competitors; restore Buy Box"
     },
     {
       "sku": "PP-CAT-PAT",
-      "product": "Wet Cat Pâté",
+      "product": "Wet Cat P\u00e2t\u00e9",
       "channel": "DTC",
       "week": "FY26-W18",
-      "issue": "Weeks of supply 1.2 — at risk of stockout in 2 weeks",
+      "issue": "Weeks of supply 1.2 \u2014 at risk of stockout in 2 weeks",
       "units_lost_est": 0,
       "action": "Raise next order; confirm distributor inventory"
     }
@@ -1663,31 +1663,31 @@
     {
       "channel": "Walmart",
       "next_4w_sales_forecast": 168329.73,
-      "confidence": "Moderate — trend + seasonality, 4-week horizon",
+      "confidence": "Moderate \u2014 trend + seasonality, 4-week horizon",
       "risk": "Stockout risk"
     },
     {
       "channel": "Amazon",
       "next_4w_sales_forecast": 96188.41,
-      "confidence": "Moderate — trend + seasonality, 4-week horizon",
+      "confidence": "Moderate \u2014 trend + seasonality, 4-week horizon",
       "risk": "Stable"
     },
     {
       "channel": "Target",
       "next_4w_sales_forecast": 64125.62,
-      "confidence": "Moderate — trend + seasonality, 4-week horizon",
+      "confidence": "Moderate \u2014 trend + seasonality, 4-week horizon",
       "risk": "Stockout risk"
     },
     {
       "channel": "DTC",
       "next_4w_sales_forecast": 40078.51,
-      "confidence": "Moderate — trend + seasonality, 4-week horizon",
+      "confidence": "Moderate \u2014 trend + seasonality, 4-week horizon",
       "risk": "Stable"
     }
   ],
   "what_changed": [
     {
-      "title": "Sales up 6% vs last year — Walmart led",
+      "title": "Sales up 6% vs last year \u2014 Walmart led",
       "detail": "Growth is broad-based across channels, with the top SKU outperforming plan.",
       "action": "Hold current promo cadence; protect top-SKU inventory."
     },
@@ -1698,9 +1698,601 @@
     },
     {
       "title": "Deductions ticked up in one channel",
-      "detail": "A small deduction spike appeared in the last 4 weeks — mostly shortage claims.",
+      "detail": "A small deduction spike appeared in the last 4 weeks \u2014 mostly shortage claims.",
       "action": "Pull deduction detail by PO before disputing."
     }
   ],
-  "notes": "Sample data in the Vantage framework — your data drops into the same framework."
+  "notes": "Sample data in the Vantage framework \u2014 your data drops into the same framework.",
+  "stores": [
+    {
+      "id": "WM-001",
+      "name": "Walmart Supercenter - Phoenix, AZ",
+      "city": "Phoenix",
+      "state": "AZ",
+      "channel": "Walmart",
+      "sales": 146443,
+      "units": 4895,
+      "in_stock_pct": 90.2,
+      "velocity_upsw": 0.8,
+      "weeks_of_supply": 3.5,
+      "top_skus": [
+        {
+          "sku": "PP-KIB-GF",
+          "product": "Grain-Free Kibble 12lb",
+          "sales": 38845,
+          "units": 137
+        },
+        {
+          "sku": "PP-LIT-CLU",
+          "product": "Clumping Litter 20lb",
+          "sales": 31982,
+          "units": 210
+        },
+        {
+          "sku": "PP-TRT-FD",
+          "product": "Freeze-Dried Treats",
+          "sales": 29300,
+          "units": 260
+        }
+      ]
+    },
+    {
+      "id": "WM-002",
+      "name": "Walmart Supercenter - Tampa, FL",
+      "city": "Tampa",
+      "state": "FL",
+      "channel": "Walmart",
+      "sales": 151898,
+      "units": 6428,
+      "in_stock_pct": 95.3,
+      "velocity_upsw": 1.1,
+      "weeks_of_supply": 3.6,
+      "top_skus": [
+        {
+          "sku": "PP-KIB-GF",
+          "product": "Grain-Free Kibble 12lb",
+          "sales": 38869,
+          "units": 307
+        },
+        {
+          "sku": "PP-LIT-CLU",
+          "product": "Clumping Litter 20lb",
+          "sales": 33144,
+          "units": 315
+        },
+        {
+          "sku": "PP-CAT-PAT",
+          "product": "Wet Cat P\u00e2t\u00e9",
+          "sales": 29795,
+          "units": 4729
+        }
+      ]
+    },
+    {
+      "id": "WM-003",
+      "name": "Walmart Supercenter - Denver, CO",
+      "city": "Denver",
+      "state": "CO",
+      "channel": "Walmart",
+      "sales": 126753,
+      "units": 9960,
+      "in_stock_pct": 89.4,
+      "velocity_upsw": 1.1,
+      "weeks_of_supply": 3.9,
+      "top_skus": [
+        {
+          "sku": "PP-KIB-GF",
+          "product": "Grain-Free Kibble 12lb",
+          "sales": 36931,
+          "units": 382
+        },
+        {
+          "sku": "PP-TRT-FD",
+          "product": "Freeze-Dried Treats",
+          "sales": 33842,
+          "units": 827
+        },
+        {
+          "sku": "PP-CAT-PAT",
+          "product": "Wet Cat P\u00e2t\u00e9",
+          "sales": 22874,
+          "units": 7481
+        }
+      ]
+    },
+    {
+      "id": "WM-004",
+      "name": "Walmart Supercenter - Minneapolis, MN",
+      "city": "Minneapolis",
+      "state": "MN",
+      "channel": "Walmart",
+      "sales": 66901,
+      "units": 5708,
+      "in_stock_pct": 92.2,
+      "velocity_upsw": 1.0,
+      "weeks_of_supply": 2.8,
+      "top_skus": [
+        {
+          "sku": "PP-KIB-GF",
+          "product": "Grain-Free Kibble 12lb",
+          "sales": 18845,
+          "units": 148
+        },
+        {
+          "sku": "PP-LIT-CLU",
+          "product": "Clumping Litter 20lb",
+          "sales": 14597,
+          "units": 298
+        },
+        {
+          "sku": "PP-TRT-FD",
+          "product": "Freeze-Dried Treats",
+          "sales": 13173,
+          "units": 415
+        }
+      ]
+    },
+    {
+      "id": "WM-005",
+      "name": "Walmart Supercenter - Rogers, AR",
+      "city": "Rogers",
+      "state": "AR",
+      "channel": "Walmart",
+      "sales": 129321,
+      "units": 8920,
+      "in_stock_pct": 90.2,
+      "velocity_upsw": 0.9,
+      "weeks_of_supply": 2.4,
+      "top_skus": [
+        {
+          "sku": "PP-KIB-GF",
+          "product": "Grain-Free Kibble 12lb",
+          "sales": 34881,
+          "units": 221
+        },
+        {
+          "sku": "PP-TRT-FD",
+          "product": "Freeze-Dried Treats",
+          "sales": 32007,
+          "units": 766
+        },
+        {
+          "sku": "PP-CAT-PAT",
+          "product": "Wet Cat P\u00e2t\u00e9",
+          "sales": 24516,
+          "units": 6993
+        }
+      ]
+    },
+    {
+      "id": "WM-006",
+      "name": "Walmart Supercenter - Bentonville, AR",
+      "city": "Bentonville",
+      "state": "AR",
+      "channel": "Walmart",
+      "sales": 71423,
+      "units": 5309,
+      "in_stock_pct": 94.8,
+      "velocity_upsw": 0.9,
+      "weeks_of_supply": 3.8,
+      "top_skus": [
+        {
+          "sku": "PP-KIB-GF",
+          "product": "Grain-Free Kibble 12lb",
+          "sales": 17930,
+          "units": 249
+        },
+        {
+          "sku": "PP-CAT-PAT",
+          "product": "Wet Cat P\u00e2t\u00e9",
+          "sales": 17054,
+          "units": 3853
+        },
+        {
+          "sku": "PP-TRT-FD",
+          "product": "Freeze-Dried Treats",
+          "sales": 15119,
+          "units": 586
+        }
+      ]
+    },
+    {
+      "id": "WM-007",
+      "name": "Walmart Supercenter - Springdale, AR",
+      "city": "Springdale",
+      "state": "AR",
+      "channel": "Walmart",
+      "sales": 176064,
+      "units": 6951,
+      "in_stock_pct": 93.3,
+      "velocity_upsw": 1.2,
+      "weeks_of_supply": 4.0,
+      "top_skus": [
+        {
+          "sku": "PP-KIB-GF",
+          "product": "Grain-Free Kibble 12lb",
+          "sales": 43125,
+          "units": 237
+        },
+        {
+          "sku": "PP-CAT-PAT",
+          "product": "Wet Cat P\u00e2t\u00e9",
+          "sales": 40797,
+          "units": 4972
+        },
+        {
+          "sku": "PP-LIT-CLU",
+          "product": "Clumping Litter 20lb",
+          "sales": 36357,
+          "units": 471
+        }
+      ]
+    },
+    {
+      "id": "WM-008",
+      "name": "Walmart Supercenter - Fayetteville, AR",
+      "city": "Fayetteville",
+      "state": "AR",
+      "channel": "Walmart",
+      "sales": 141158,
+      "units": 3596,
+      "in_stock_pct": 95.4,
+      "velocity_upsw": 0.6,
+      "weeks_of_supply": 3.4,
+      "top_skus": [
+        {
+          "sku": "PP-KIB-GF",
+          "product": "Grain-Free Kibble 12lb",
+          "sales": 35244,
+          "units": 156
+        },
+        {
+          "sku": "PP-TRT-FD",
+          "product": "Freeze-Dried Treats",
+          "sales": 33887,
+          "units": 431
+        },
+        {
+          "sku": "PP-LIT-CLU",
+          "product": "Clumping Litter 20lb",
+          "sales": 29017,
+          "units": 220
+        }
+      ]
+    },
+    {
+      "id": "TG-001",
+      "name": "Target - Denver, CO",
+      "city": "Denver",
+      "state": "CO",
+      "channel": "Target",
+      "sales": 77560,
+      "units": 3415,
+      "in_stock_pct": 91.0,
+      "velocity_upsw": 1.0,
+      "weeks_of_supply": 2.8,
+      "top_skus": [
+        {
+          "sku": "PP-TRT-FD",
+          "product": "Freeze-Dried Treats",
+          "sales": 20187,
+          "units": 275
+        },
+        {
+          "sku": "PP-LIT-CLU",
+          "product": "Clumping Litter 20lb",
+          "sales": 17393,
+          "units": 127
+        },
+        {
+          "sku": "PP-KIB-GF",
+          "product": "Grain-Free Kibble 12lb",
+          "sales": 17336,
+          "units": 76
+        }
+      ]
+    },
+    {
+      "id": "TG-002",
+      "name": "Target - Minneapolis, MN",
+      "city": "Minneapolis",
+      "state": "MN",
+      "channel": "Target",
+      "sales": 83029,
+      "units": 3387,
+      "in_stock_pct": 91.6,
+      "velocity_upsw": 0.6,
+      "weeks_of_supply": 3.4,
+      "top_skus": [
+        {
+          "sku": "PP-KIB-GF",
+          "product": "Grain-Free Kibble 12lb",
+          "sales": 26452,
+          "units": 78
+        },
+        {
+          "sku": "PP-LIT-CLU",
+          "product": "Clumping Litter 20lb",
+          "sales": 17670,
+          "units": 133
+        },
+        {
+          "sku": "PP-TRT-FD",
+          "product": "Freeze-Dried Treats",
+          "sales": 16657,
+          "units": 191
+        }
+      ]
+    },
+    {
+      "id": "TG-003",
+      "name": "Target - Dallas, TX",
+      "city": "Dallas",
+      "state": "TX",
+      "channel": "Target",
+      "sales": 47949,
+      "units": 2588,
+      "in_stock_pct": 88.8,
+      "velocity_upsw": 1.1,
+      "weeks_of_supply": 3.8,
+      "top_skus": [
+        {
+          "sku": "PP-KIB-GF",
+          "product": "Grain-Free Kibble 12lb",
+          "sales": 11122,
+          "units": 97
+        },
+        {
+          "sku": "PP-TRT-FD",
+          "product": "Freeze-Dried Treats",
+          "sales": 10931,
+          "units": 208
+        },
+        {
+          "sku": "PP-CAT-PAT",
+          "product": "Wet Cat P\u00e2t\u00e9",
+          "sales": 9872,
+          "units": 1951
+        }
+      ]
+    },
+    {
+      "id": "TG-004",
+      "name": "Target - Chicago, IL",
+      "city": "Chicago",
+      "state": "IL",
+      "channel": "Target",
+      "sales": 53846,
+      "units": 3987,
+      "in_stock_pct": 89.7,
+      "velocity_upsw": 0.8,
+      "weeks_of_supply": 3.0,
+      "top_skus": [
+        {
+          "sku": "PP-KIB-GF",
+          "product": "Grain-Free Kibble 12lb",
+          "sales": 15470,
+          "units": 175
+        },
+        {
+          "sku": "PP-TRT-FD",
+          "product": "Freeze-Dried Treats",
+          "sales": 12723,
+          "units": 255
+        },
+        {
+          "sku": "PP-CAT-PAT",
+          "product": "Wet Cat P\u00e2t\u00e9",
+          "sales": 10172,
+          "units": 3021
+        }
+      ]
+    },
+    {
+      "id": "TG-005",
+      "name": "Target - Atlanta, GA",
+      "city": "Atlanta",
+      "state": "GA",
+      "channel": "Target",
+      "sales": 64140,
+      "units": 2167,
+      "in_stock_pct": 93.0,
+      "velocity_upsw": 1.1,
+      "weeks_of_supply": 1.7,
+      "top_skus": [
+        {
+          "sku": "PP-KIB-GF",
+          "product": "Grain-Free Kibble 12lb",
+          "sales": 19573,
+          "units": 72
+        },
+        {
+          "sku": "PP-CAT-PAT",
+          "product": "Wet Cat P\u00e2t\u00e9",
+          "sales": 11770,
+          "units": 1503
+        },
+        {
+          "sku": "PP-LIT-CLU",
+          "product": "Clumping Litter 20lb",
+          "sales": 11750,
+          "units": 154
+        }
+      ]
+    },
+    {
+      "id": "TG-006",
+      "name": "Target - Houston, TX",
+      "city": "Houston",
+      "state": "TX",
+      "channel": "Target",
+      "sales": 58223,
+      "units": 4171,
+      "in_stock_pct": 92.6,
+      "velocity_upsw": 0.9,
+      "weeks_of_supply": 2.0,
+      "top_skus": [
+        {
+          "sku": "PP-KIB-GF",
+          "product": "Grain-Free Kibble 12lb",
+          "sales": 15020,
+          "units": 145
+        },
+        {
+          "sku": "PP-LIT-CLU",
+          "product": "Clumping Litter 20lb",
+          "sales": 12050,
+          "units": 148
+        },
+        {
+          "sku": "PP-CAT-PAT",
+          "product": "Wet Cat P\u00e2t\u00e9",
+          "sales": 11331,
+          "units": 3321
+        }
+      ]
+    }
+  ],
+  "channel_products": [
+    {
+      "channel": "Amazon",
+      "products": [
+        {
+          "sku": "PP-KIB-GF",
+          "product": "Grain-Free Kibble 12lb",
+          "sales": 148742,
+          "units": 989
+        },
+        {
+          "sku": "PP-TRT-FD",
+          "product": "Freeze-Dried Treats",
+          "sales": 126431,
+          "units": 2412
+        },
+        {
+          "sku": "PP-CAT-PAT",
+          "product": "Wet Cat P\u00e2t\u00e9",
+          "sales": 116019,
+          "units": 22265
+        },
+        {
+          "sku": "PP-LIT-CLU",
+          "product": "Clumping Litter 20lb",
+          "sales": 104120,
+          "units": 1568
+        },
+        {
+          "sku": "PP-CHW-STK",
+          "product": "Chew Sticks",
+          "sales": 81808,
+          "units": 2341
+        }
+      ]
+    },
+    {
+      "channel": "DTC",
+      "products": [
+        {
+          "sku": "PP-KIB-GF",
+          "product": "Grain-Free Kibble 12lb",
+          "sales": 61976,
+          "units": 412
+        },
+        {
+          "sku": "PP-TRT-FD",
+          "product": "Freeze-Dried Treats",
+          "sales": 52680,
+          "units": 1004
+        },
+        {
+          "sku": "PP-CAT-PAT",
+          "product": "Wet Cat P\u00e2t\u00e9",
+          "sales": 48341,
+          "units": 9272
+        },
+        {
+          "sku": "PP-LIT-CLU",
+          "product": "Clumping Litter 20lb",
+          "sales": 43383,
+          "units": 653
+        },
+        {
+          "sku": "PP-CHW-STK",
+          "product": "Chew Sticks",
+          "sales": 34087,
+          "units": 975
+        }
+      ]
+    },
+    {
+      "channel": "Target",
+      "products": [
+        {
+          "sku": "PP-KIB-GF",
+          "product": "Grain-Free Kibble 12lb",
+          "sales": 99162,
+          "units": 659
+        },
+        {
+          "sku": "PP-TRT-FD",
+          "product": "Freeze-Dried Treats",
+          "sales": 84287,
+          "units": 1608
+        },
+        {
+          "sku": "PP-CAT-PAT",
+          "product": "Wet Cat P\u00e2t\u00e9",
+          "sales": 77346,
+          "units": 14842
+        },
+        {
+          "sku": "PP-LIT-CLU",
+          "product": "Clumping Litter 20lb",
+          "sales": 69413,
+          "units": 1045
+        },
+        {
+          "sku": "PP-CHW-STK",
+          "product": "Chew Sticks",
+          "sales": 54539,
+          "units": 1561
+        }
+      ]
+    },
+    {
+      "channel": "Walmart",
+      "products": [
+        {
+          "sku": "PP-KIB-GF",
+          "product": "Grain-Free Kibble 12lb",
+          "sales": 260299,
+          "units": 1732
+        },
+        {
+          "sku": "PP-TRT-FD",
+          "product": "Freeze-Dried Treats",
+          "sales": 221254,
+          "units": 4221
+        },
+        {
+          "sku": "PP-CAT-PAT",
+          "product": "Wet Cat P\u00e2t\u00e9",
+          "sales": 203033,
+          "units": 38971
+        },
+        {
+          "sku": "PP-LIT-CLU",
+          "product": "Clumping Litter 20lb",
+          "sales": 182210,
+          "units": 2744
+        },
+        {
+          "sku": "PP-CHW-STK",
+          "product": "Chew Sticks",
+          "sales": 143165,
+          "units": 4099
+        }
+      ]
+    }
+  ]
 }

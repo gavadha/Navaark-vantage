@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "brand_slug": "baby",
-  "headline": "Sales up 6% vs last year — Walmart led, one SKU at stockout risk",
+  "headline": "Sales up 6% vs last year \u2014 Walmart led, one SKU at stockout risk",
   "weekly": [
     {
       "week": 1,
@@ -1627,7 +1627,7 @@
       "product": "Diapers Size 4",
       "channel": "Walmart",
       "week": "FY26-W14",
-      "issue": "Stockout — in-stock 81%, 2 weeks of lost sales",
+      "issue": "Stockout \u2014 in-stock 81%, 2 weeks of lost sales",
       "units_lost_est": 1840,
       "action": "Expedite replenishment; check DC allocation"
     },
@@ -1636,7 +1636,7 @@
       "product": "Organic Pouches 4pk",
       "channel": "Target",
       "week": "FY26-W16",
-      "issue": "Deduction spike — shortage / compliance deductions up 2.1% of sales",
+      "issue": "Deduction spike \u2014 shortage / compliance deductions up 2.1% of sales",
       "units_lost_est": 0,
       "action": "Pull deduction detail by PO; dispute invalid shortages"
     },
@@ -1645,7 +1645,7 @@
       "product": "Diapers Size 3",
       "channel": "Amazon",
       "week": "FY26-W20",
-      "issue": "Velocity down 12% vs prior year — Buy Box lost 3 days",
+      "issue": "Velocity down 12% vs prior year \u2014 Buy Box lost 3 days",
       "units_lost_est": 620,
       "action": "Check price vs competitors; restore Buy Box"
     },
@@ -1654,7 +1654,7 @@
       "product": "Sensitive Wipes 72ct",
       "channel": "DTC",
       "week": "FY26-W18",
-      "issue": "Weeks of supply 1.2 — at risk of stockout in 2 weeks",
+      "issue": "Weeks of supply 1.2 \u2014 at risk of stockout in 2 weeks",
       "units_lost_est": 0,
       "action": "Raise next order; confirm distributor inventory"
     }
@@ -1663,31 +1663,31 @@
     {
       "channel": "Walmart",
       "next_4w_sales_forecast": 133401.02,
-      "confidence": "Moderate — trend + seasonality, 4-week horizon",
+      "confidence": "Moderate \u2014 trend + seasonality, 4-week horizon",
       "risk": "Stockout risk"
     },
     {
       "channel": "Amazon",
       "next_4w_sales_forecast": 76229.16,
-      "confidence": "Moderate — trend + seasonality, 4-week horizon",
+      "confidence": "Moderate \u2014 trend + seasonality, 4-week horizon",
       "risk": "Stable"
     },
     {
       "channel": "Target",
       "next_4w_sales_forecast": 50819.44,
-      "confidence": "Moderate — trend + seasonality, 4-week horizon",
+      "confidence": "Moderate \u2014 trend + seasonality, 4-week horizon",
       "risk": "Stockout risk"
     },
     {
       "channel": "DTC",
       "next_4w_sales_forecast": 31762.15,
-      "confidence": "Moderate — trend + seasonality, 4-week horizon",
+      "confidence": "Moderate \u2014 trend + seasonality, 4-week horizon",
       "risk": "Stable"
     }
   ],
   "what_changed": [
     {
-      "title": "Sales up 6% vs last year — Walmart led",
+      "title": "Sales up 6% vs last year \u2014 Walmart led",
       "detail": "Growth is broad-based across channels, with the top SKU outperforming plan.",
       "action": "Hold current promo cadence; protect top-SKU inventory."
     },
@@ -1698,9 +1698,601 @@
     },
     {
       "title": "Deductions ticked up in one channel",
-      "detail": "A small deduction spike appeared in the last 4 weeks — mostly shortage claims.",
+      "detail": "A small deduction spike appeared in the last 4 weeks \u2014 mostly shortage claims.",
       "action": "Pull deduction detail by PO before disputing."
     }
   ],
-  "notes": "Sample data in the Vantage framework — your data drops into the same framework."
+  "notes": "Sample data in the Vantage framework \u2014 your data drops into the same framework.",
+  "stores": [
+    {
+      "id": "WM-001",
+      "name": "Walmart Supercenter - Denver, CO",
+      "city": "Denver",
+      "state": "CO",
+      "channel": "Walmart",
+      "sales": 158252,
+      "units": 7288,
+      "in_stock_pct": 93.9,
+      "velocity_upsw": 1.2,
+      "weeks_of_supply": 3.5,
+      "top_skus": [
+        {
+          "sku": "LS-POU-ORG",
+          "product": "Organic Pouches 4pk",
+          "sales": 38795,
+          "units": 1822
+        },
+        {
+          "sku": "LS-DIA-S3",
+          "product": "Diapers Size 3",
+          "sales": 36463,
+          "units": 717
+        },
+        {
+          "sku": "LS-WIP-SEN",
+          "product": "Sensitive Wipes 72ct",
+          "sales": 31195,
+          "units": 1977
+        }
+      ]
+    },
+    {
+      "id": "WM-002",
+      "name": "Walmart Supercenter - Minneapolis, MN",
+      "city": "Minneapolis",
+      "state": "MN",
+      "channel": "Walmart",
+      "sales": 73553,
+      "units": 8898,
+      "in_stock_pct": 91.0,
+      "velocity_upsw": 0.8,
+      "weeks_of_supply": 2.7,
+      "top_skus": [
+        {
+          "sku": "LS-DIA-S4",
+          "product": "Diapers Size 4",
+          "sales": 19159,
+          "units": 792
+        },
+        {
+          "sku": "LS-DIA-S3",
+          "product": "Diapers Size 3",
+          "sales": 17924,
+          "units": 924
+        },
+        {
+          "sku": "LS-WIP-SEN",
+          "product": "Sensitive Wipes 72ct",
+          "sales": 15801,
+          "units": 2038
+        }
+      ]
+    },
+    {
+      "id": "WM-003",
+      "name": "Walmart Supercenter - Rogers, AR",
+      "city": "Rogers",
+      "state": "AR",
+      "channel": "Walmart",
+      "sales": 153505,
+      "units": 6697,
+      "in_stock_pct": 92.3,
+      "velocity_upsw": 1.0,
+      "weeks_of_supply": 3.3,
+      "top_skus": [
+        {
+          "sku": "LS-DIA-S3",
+          "product": "Diapers Size 3",
+          "sales": 37965,
+          "units": 560
+        },
+        {
+          "sku": "LS-WIP-SEN",
+          "product": "Sensitive Wipes 72ct",
+          "sales": 36751,
+          "units": 1835
+        },
+        {
+          "sku": "LS-DIA-S4",
+          "product": "Diapers Size 4",
+          "sales": 33869,
+          "units": 463
+        }
+      ]
+    },
+    {
+      "id": "WM-004",
+      "name": "Walmart Supercenter - Bentonville, AR",
+      "city": "Bentonville",
+      "state": "AR",
+      "channel": "Walmart",
+      "sales": 67277,
+      "units": 7547,
+      "in_stock_pct": 91.1,
+      "velocity_upsw": 0.6,
+      "weeks_of_supply": 3.6,
+      "top_skus": [
+        {
+          "sku": "LS-DIA-S3",
+          "product": "Diapers Size 3",
+          "sales": 19079,
+          "units": 733
+        },
+        {
+          "sku": "LS-DIA-S4",
+          "product": "Diapers Size 4",
+          "sales": 14643,
+          "units": 804
+        },
+        {
+          "sku": "LS-WIP-SEN",
+          "product": "Sensitive Wipes 72ct",
+          "sales": 12229,
+          "units": 2259
+        }
+      ]
+    },
+    {
+      "id": "WM-005",
+      "name": "Walmart Supercenter - Springdale, AR",
+      "city": "Springdale",
+      "state": "AR",
+      "channel": "Walmart",
+      "sales": 82582,
+      "units": 7837,
+      "in_stock_pct": 94.2,
+      "velocity_upsw": 1.0,
+      "weeks_of_supply": 3.4,
+      "top_skus": [
+        {
+          "sku": "LS-WIP-SEN",
+          "product": "Sensitive Wipes 72ct",
+          "sales": 23201,
+          "units": 1447
+        },
+        {
+          "sku": "LS-DIA-S4",
+          "product": "Diapers Size 4",
+          "sales": 18128,
+          "units": 851
+        },
+        {
+          "sku": "LS-DIA-S3",
+          "product": "Diapers Size 3",
+          "sales": 16876,
+          "units": 801
+        }
+      ]
+    },
+    {
+      "id": "WM-006",
+      "name": "Walmart Supercenter - Fayetteville, AR",
+      "city": "Fayetteville",
+      "state": "AR",
+      "channel": "Walmart",
+      "sales": 124890,
+      "units": 7046,
+      "in_stock_pct": 94.1,
+      "velocity_upsw": 0.7,
+      "weeks_of_supply": 3.1,
+      "top_skus": [
+        {
+          "sku": "LS-DIA-S4",
+          "product": "Diapers Size 4",
+          "sales": 35602,
+          "units": 743
+        },
+        {
+          "sku": "LS-WIP-SEN",
+          "product": "Sensitive Wipes 72ct",
+          "sales": 30033,
+          "units": 1428
+        },
+        {
+          "sku": "LS-DIA-S3",
+          "product": "Diapers Size 3",
+          "sales": 24498,
+          "units": 710
+        }
+      ]
+    },
+    {
+      "id": "WM-007",
+      "name": "Walmart Supercenter - Dallas, TX",
+      "city": "Dallas",
+      "state": "TX",
+      "channel": "Walmart",
+      "sales": 96949,
+      "units": 5439,
+      "in_stock_pct": 92.3,
+      "velocity_upsw": 0.8,
+      "weeks_of_supply": 3.4,
+      "top_skus": [
+        {
+          "sku": "LS-DIA-S3",
+          "product": "Diapers Size 3",
+          "sales": 24145,
+          "units": 680
+        },
+        {
+          "sku": "LS-DIA-S4",
+          "product": "Diapers Size 4",
+          "sales": 21776,
+          "units": 358
+        },
+        {
+          "sku": "LS-POU-ORG",
+          "product": "Organic Pouches 4pk",
+          "sales": 20128,
+          "units": 1506
+        }
+      ]
+    },
+    {
+      "id": "WM-008",
+      "name": "Walmart Supercenter - Houston, TX",
+      "city": "Houston",
+      "state": "TX",
+      "channel": "Walmart",
+      "sales": 82568,
+      "units": 3831,
+      "in_stock_pct": 94.9,
+      "velocity_upsw": 1.4,
+      "weeks_of_supply": 3.7,
+      "top_skus": [
+        {
+          "sku": "LS-DIA-S3",
+          "product": "Diapers Size 3",
+          "sales": 23736,
+          "units": 399
+        },
+        {
+          "sku": "LS-DIA-S4",
+          "product": "Diapers Size 4",
+          "sales": 19032,
+          "units": 443
+        },
+        {
+          "sku": "LS-POU-ORG",
+          "product": "Organic Pouches 4pk",
+          "sales": 17311,
+          "units": 1144
+        }
+      ]
+    },
+    {
+      "id": "TG-001",
+      "name": "Target - Minneapolis, MN",
+      "city": "Minneapolis",
+      "state": "MN",
+      "channel": "Target",
+      "sales": 63816,
+      "units": 3868,
+      "in_stock_pct": 95.6,
+      "velocity_upsw": 1.4,
+      "weeks_of_supply": 3.5,
+      "top_skus": [
+        {
+          "sku": "LS-DIA-S3",
+          "product": "Diapers Size 3",
+          "sales": 15453,
+          "units": 317
+        },
+        {
+          "sku": "LS-WIP-SEN",
+          "product": "Sensitive Wipes 72ct",
+          "sales": 14537,
+          "units": 788
+        },
+        {
+          "sku": "LS-DIA-S4",
+          "product": "Diapers Size 4",
+          "sales": 12325,
+          "units": 397
+        }
+      ]
+    },
+    {
+      "id": "TG-002",
+      "name": "Target - Dallas, TX",
+      "city": "Dallas",
+      "state": "TX",
+      "channel": "Target",
+      "sales": 56747,
+      "units": 2203,
+      "in_stock_pct": 92.5,
+      "velocity_upsw": 1.1,
+      "weeks_of_supply": 2.0,
+      "top_skus": [
+        {
+          "sku": "LS-DIA-S3",
+          "product": "Diapers Size 3",
+          "sales": 13421,
+          "units": 240
+        },
+        {
+          "sku": "LS-WIP-SEN",
+          "product": "Sensitive Wipes 72ct",
+          "sales": 13305,
+          "units": 592
+        },
+        {
+          "sku": "LS-DIA-S4",
+          "product": "Diapers Size 4",
+          "sales": 13032,
+          "units": 138
+        }
+      ]
+    },
+    {
+      "id": "TG-003",
+      "name": "Target - Chicago, IL",
+      "city": "Chicago",
+      "state": "IL",
+      "channel": "Target",
+      "sales": 45781,
+      "units": 2927,
+      "in_stock_pct": 90.0,
+      "velocity_upsw": 1.4,
+      "weeks_of_supply": 2.1,
+      "top_skus": [
+        {
+          "sku": "LS-DIA-S4",
+          "product": "Diapers Size 4",
+          "sales": 11968,
+          "units": 190
+        },
+        {
+          "sku": "LS-DIA-S3",
+          "product": "Diapers Size 3",
+          "sales": 10790,
+          "units": 258
+        },
+        {
+          "sku": "LS-WIP-SEN",
+          "product": "Sensitive Wipes 72ct",
+          "sales": 10030,
+          "units": 666
+        }
+      ]
+    },
+    {
+      "id": "TG-004",
+      "name": "Target - Atlanta, GA",
+      "city": "Atlanta",
+      "state": "GA",
+      "channel": "Target",
+      "sales": 45637,
+      "units": 5445,
+      "in_stock_pct": 92.8,
+      "velocity_upsw": 0.9,
+      "weeks_of_supply": 3.6,
+      "top_skus": [
+        {
+          "sku": "LS-DIA-S3",
+          "product": "Diapers Size 3",
+          "sales": 12234,
+          "units": 517
+        },
+        {
+          "sku": "LS-DIA-S4",
+          "product": "Diapers Size 4",
+          "sales": 10259,
+          "units": 567
+        },
+        {
+          "sku": "LS-WIP-SEN",
+          "product": "Sensitive Wipes 72ct",
+          "sales": 8947,
+          "units": 1709
+        }
+      ]
+    },
+    {
+      "id": "TG-005",
+      "name": "Target - Houston, TX",
+      "city": "Houston",
+      "state": "TX",
+      "channel": "Target",
+      "sales": 34317,
+      "units": 2596,
+      "in_stock_pct": 96.0,
+      "velocity_upsw": 0.7,
+      "weeks_of_supply": 3.0,
+      "top_skus": [
+        {
+          "sku": "LS-DIA-S4",
+          "product": "Diapers Size 4",
+          "sales": 8718,
+          "units": 259
+        },
+        {
+          "sku": "LS-DIA-S3",
+          "product": "Diapers Size 3",
+          "sales": 8567,
+          "units": 253
+        },
+        {
+          "sku": "LS-POU-ORG",
+          "product": "Organic Pouches 4pk",
+          "sales": 6432,
+          "units": 897
+        }
+      ]
+    },
+    {
+      "id": "TG-006",
+      "name": "Target - Phoenix, AZ",
+      "city": "Phoenix",
+      "state": "AZ",
+      "channel": "Target",
+      "sales": 73540,
+      "units": 3745,
+      "in_stock_pct": 96.2,
+      "velocity_upsw": 0.6,
+      "weeks_of_supply": 2.0,
+      "top_skus": [
+        {
+          "sku": "LS-DIA-S3",
+          "product": "Diapers Size 3",
+          "sales": 17509,
+          "units": 424
+        },
+        {
+          "sku": "LS-WIP-SEN",
+          "product": "Sensitive Wipes 72ct",
+          "sales": 15724,
+          "units": 959
+        },
+        {
+          "sku": "LS-POU-ORG",
+          "product": "Organic Pouches 4pk",
+          "sales": 14951,
+          "units": 875
+        }
+      ]
+    }
+  ],
+  "channel_products": [
+    {
+      "channel": "Amazon",
+      "products": [
+        {
+          "sku": "LS-DIA-S3",
+          "product": "Diapers Size 3",
+          "sales": 118752,
+          "units": 3073
+        },
+        {
+          "sku": "LS-DIA-S4",
+          "product": "Diapers Size 4",
+          "sales": 109252,
+          "units": 2827
+        },
+        {
+          "sku": "LS-WIP-SEN",
+          "product": "Sensitive Wipes 72ct",
+          "sales": 99752,
+          "units": 8074
+        },
+        {
+          "sku": "LS-POU-ORG",
+          "product": "Organic Pouches 4pk",
+          "sales": 83126,
+          "units": 8283
+        },
+        {
+          "sku": "LS-SNK-TOD",
+          "product": "Toddler Snacks",
+          "sales": 68876,
+          "units": 8926
+        }
+      ]
+    },
+    {
+      "channel": "DTC",
+      "products": [
+        {
+          "sku": "LS-DIA-S3",
+          "product": "Diapers Size 3",
+          "sales": 49480,
+          "units": 1280
+        },
+        {
+          "sku": "LS-DIA-S4",
+          "product": "Diapers Size 4",
+          "sales": 45522,
+          "units": 1177
+        },
+        {
+          "sku": "LS-WIP-SEN",
+          "product": "Sensitive Wipes 72ct",
+          "sales": 41563,
+          "units": 3362
+        },
+        {
+          "sku": "LS-POU-ORG",
+          "product": "Organic Pouches 4pk",
+          "sales": 34636,
+          "units": 3449
+        },
+        {
+          "sku": "LS-SNK-TOD",
+          "product": "Toddler Snacks",
+          "sales": 28698,
+          "units": 3717
+        }
+      ]
+    },
+    {
+      "channel": "Target",
+      "products": [
+        {
+          "sku": "LS-DIA-S3",
+          "product": "Diapers Size 3",
+          "sales": 79168,
+          "units": 2048
+        },
+        {
+          "sku": "LS-DIA-S4",
+          "product": "Diapers Size 4",
+          "sales": 72834,
+          "units": 1884
+        },
+        {
+          "sku": "LS-WIP-SEN",
+          "product": "Sensitive Wipes 72ct",
+          "sales": 66501,
+          "units": 5381
+        },
+        {
+          "sku": "LS-POU-ORG",
+          "product": "Organic Pouches 4pk",
+          "sales": 55418,
+          "units": 5521
+        },
+        {
+          "sku": "LS-SNK-TOD",
+          "product": "Toddler Snacks",
+          "sales": 45917,
+          "units": 5950
+        }
+      ]
+    },
+    {
+      "channel": "Walmart",
+      "products": [
+        {
+          "sku": "LS-DIA-S3",
+          "product": "Diapers Size 3",
+          "sales": 207816,
+          "units": 5379
+        },
+        {
+          "sku": "LS-DIA-S4",
+          "product": "Diapers Size 4",
+          "sales": 191191,
+          "units": 4949
+        },
+        {
+          "sku": "LS-WIP-SEN",
+          "product": "Sensitive Wipes 72ct",
+          "sales": 174565,
+          "units": 14132
+        },
+        {
+          "sku": "LS-POU-ORG",
+          "product": "Organic Pouches 4pk",
+          "sales": 145471,
+          "units": 14499
+        },
+        {
+          "sku": "LS-SNK-TOD",
+          "product": "Toddler Snacks",
+          "sales": 120533,
+          "units": 15624
+        }
+      ]
+    }
+  ]
 }

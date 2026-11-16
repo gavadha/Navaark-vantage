@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "brand_slug": "food-beverage",
-  "headline": "Sales up 8% vs last year — Walmart drove it, Target lagged",
+  "headline": "Sales up 8% vs last year \u2014 Walmart drove it, Target lagged",
   "weekly": [
     {
       "week": 1,
@@ -3907,7 +3907,7 @@
   "products": [
     {
       "sku": "GH-PB-CHO",
-      "name": "Protein Bar — Chocolate",
+      "name": "Protein Bar \u2014 Chocolate",
       "price": 3.49,
       "sales": 1585196.9,
       "units": 454211,
@@ -3918,7 +3918,7 @@
     },
     {
       "sku": "GH-PB-PB",
-      "name": "Protein Bar — Peanut Butter",
+      "name": "Protein Bar \u2014 Peanut Butter",
       "price": 3.49,
       "sales": 1458381.15,
       "units": 417874,
@@ -3929,7 +3929,7 @@
     },
     {
       "sku": "GH-SW-LIM",
-      "name": "Sparkling Water — Lime",
+      "name": "Sparkling Water \u2014 Lime",
       "price": 1.99,
       "sales": 1347417.37,
       "units": 677094,
@@ -3940,7 +3940,7 @@
     },
     {
       "sku": "GH-SW-BER",
-      "name": "Sparkling Water — Berry",
+      "name": "Sparkling Water \u2014 Berry",
       "price": 1.99,
       "sales": 1268157.52,
       "units": 637265,
@@ -3951,7 +3951,7 @@
     },
     {
       "sku": "GH-PB-BER",
-      "name": "Protein Bar — Berry",
+      "name": "Protein Bar \u2014 Berry",
       "price": 3.49,
       "sales": 1236453.58,
       "units": 354284,
@@ -3962,7 +3962,7 @@
     },
     {
       "sku": "GH-PS-COL",
-      "name": "Prebiotic Soda — Cola",
+      "name": "Prebiotic Soda \u2014 Cola",
       "price": 2.49,
       "sales": 1109637.83,
       "units": 445637,
@@ -3973,7 +3973,7 @@
     },
     {
       "sku": "GH-PS-GIN",
-      "name": "Prebiotic Soda — Ginger",
+      "name": "Prebiotic Soda \u2014 Ginger",
       "price": 2.49,
       "sales": 982822.08,
       "units": 394707,
@@ -3984,7 +3984,7 @@
     },
     {
       "sku": "GH-TM-MIX",
-      "name": "Trail Mix — Nut Clusters",
+      "name": "Trail Mix \u2014 Nut Clusters",
       "price": 4.99,
       "sales": 871858.3,
       "units": 174721,
@@ -3997,37 +3997,37 @@
   "exceptions": [
     {
       "sku": "GH-PB-PB",
-      "product": "Protein Bar — Peanut Butter",
+      "product": "Protein Bar \u2014 Peanut Butter",
       "channel": "Walmart",
       "week": "FY26-W32",
-      "issue": "Stockout — in-stock 81%, 2 weeks of lost sales",
+      "issue": "Stockout \u2014 in-stock 81%, 2 weeks of lost sales",
       "units_lost_est": 1840,
       "action": "Expedite replenishment; check DC allocation"
     },
     {
       "sku": "GH-SW-BER",
-      "product": "Sparkling Water — Berry",
+      "product": "Sparkling Water \u2014 Berry",
       "channel": "Target",
       "week": "FY26-W27",
-      "issue": "Deduction spike — shortage / compliance deductions up 2.1% of sales",
+      "issue": "Deduction spike \u2014 shortage / compliance deductions up 2.1% of sales",
       "units_lost_est": 0,
       "action": "Pull deduction detail by PO; dispute invalid shortages"
     },
     {
       "sku": "GH-PS-COL",
-      "product": "Prebiotic Soda — Cola",
+      "product": "Prebiotic Soda \u2014 Cola",
       "channel": "Amazon",
       "week": "FY26-W20",
-      "issue": "Velocity down 12% vs prior year — Buy Box lost 3 days",
+      "issue": "Velocity down 12% vs prior year \u2014 Buy Box lost 3 days",
       "units_lost_est": 620,
       "action": "Check price vs competitors; restore Buy Box"
     },
     {
       "sku": "GH-SW-LIM",
-      "product": "Sparkling Water — Lime",
+      "product": "Sparkling Water \u2014 Lime",
       "channel": "Distributor",
       "week": "FY26-W38",
-      "issue": "Weeks of supply 1.2 — at risk of stockout in 2 weeks",
+      "issue": "Weeks of supply 1.2 \u2014 at risk of stockout in 2 weeks",
       "units_lost_est": 0,
       "action": "Raise next order; confirm distributor inventory"
     }
@@ -4036,50 +4036,895 @@
     {
       "channel": "Walmart",
       "next_4w_sales_forecast": 325295.91,
-      "confidence": "Moderate — trend + seasonality, 4-week horizon",
+      "confidence": "Moderate \u2014 trend + seasonality, 4-week horizon",
       "risk": "Stockout risk"
     },
     {
       "channel": "Amazon",
       "next_4w_sales_forecast": 175361.67,
-      "confidence": "Moderate — trend + seasonality, 4-week horizon",
+      "confidence": "Moderate \u2014 trend + seasonality, 4-week horizon",
       "risk": "Stable"
     },
     {
       "channel": "Target",
       "next_4w_sales_forecast": 109893.31,
-      "confidence": "Moderate — trend + seasonality, 4-week horizon",
+      "confidence": "Moderate \u2014 trend + seasonality, 4-week horizon",
       "risk": "Stockout risk"
     },
     {
       "channel": "DTC",
       "next_4w_sales_forecast": 73067.35,
-      "confidence": "Moderate — trend + seasonality, 4-week horizon",
+      "confidence": "Moderate \u2014 trend + seasonality, 4-week horizon",
       "risk": "Stable"
     },
     {
       "channel": "Distributor",
       "next_4w_sales_forecast": 58453.89,
-      "confidence": "Moderate — trend + seasonality, 4-week horizon",
+      "confidence": "Moderate \u2014 trend + seasonality, 4-week horizon",
       "risk": "Stable"
     }
   ],
   "what_changed": [
     {
-      "title": "Sales up 8% vs last year — Walmart drove it",
+      "title": "Sales up 8% vs last year \u2014 Walmart drove it",
       "detail": "Walmart sales are running 6% above trend on protein bars, with a promo lift in week 38.",
       "action": "Hold Walmart promo cadence; do not cut facings."
     },
     {
-      "title": "Target lagged — velocity down, deductions up",
+      "title": "Target lagged \u2014 velocity down, deductions up",
       "detail": "Target OTIF slipped to 90% in the deduction-spike weeks and in-stock fell to 81% on two SKUs.",
       "action": "Review Target POs and deduction reasons this week."
     },
     {
       "title": "Two SKUs are at stockout risk in the next 2 weeks",
-      "detail": "Weeks of supply is 1.2 on the berry bar and sparkling water — below the 2-week safety level.",
+      "detail": "Weeks of supply is 1.2 on the berry bar and sparkling water \u2014 below the 2-week safety level.",
       "action": "Expedite replenishment and confirm distributor inventory."
     }
   ],
-  "notes": "Sample data in the Vantage framework — your data drops into the same framework."
+  "notes": "Sample data in the Vantage framework \u2014 your data drops into the same framework.",
+  "stores": [
+    {
+      "id": "WM-001",
+      "name": "Walmart Supercenter - Houston, TX",
+      "city": "Houston",
+      "state": "TX",
+      "channel": "Walmart",
+      "sales": 270822,
+      "units": 156034,
+      "in_stock_pct": 95.3,
+      "velocity_upsw": 9.3,
+      "weeks_of_supply": 2.7,
+      "top_skus": [
+        {
+          "sku": "GH-PB-PB",
+          "product": "Protein Bar \u2014 Peanut Butter",
+          "sales": 44690,
+          "units": 15037
+        },
+        {
+          "sku": "GH-SW-BER",
+          "product": "Sparkling Water \u2014 Berry",
+          "sales": 41639,
+          "units": 27474
+        },
+        {
+          "sku": "GH-PB-BER",
+          "product": "Protein Bar \u2014 Berry",
+          "sales": 40060,
+          "units": 19514
+        }
+      ]
+    },
+    {
+      "id": "WM-002",
+      "name": "Walmart Supercenter - Atlanta, GA",
+      "city": "Atlanta",
+      "state": "GA",
+      "channel": "Walmart",
+      "sales": 451605,
+      "units": 162358,
+      "in_stock_pct": 95.3,
+      "velocity_upsw": 15.0,
+      "weeks_of_supply": 2.6,
+      "top_skus": [
+        {
+          "sku": "GH-PB-CHO",
+          "product": "Protein Bar \u2014 Chocolate",
+          "sales": 71573,
+          "units": 27505
+        },
+        {
+          "sku": "GH-PB-PB",
+          "product": "Protein Bar \u2014 Peanut Butter",
+          "sales": 70579,
+          "units": 18041
+        },
+        {
+          "sku": "GH-SW-BER",
+          "product": "Sparkling Water \u2014 Berry",
+          "sales": 67354,
+          "units": 23996
+        }
+      ]
+    },
+    {
+      "id": "WM-003",
+      "name": "Walmart Supercenter - Chicago, IL",
+      "city": "Chicago",
+      "state": "IL",
+      "channel": "Walmart",
+      "sales": 420005,
+      "units": 160241,
+      "in_stock_pct": 94.0,
+      "velocity_upsw": 15.9,
+      "weeks_of_supply": 4.0,
+      "top_skus": [
+        {
+          "sku": "GH-PB-PB",
+          "product": "Protein Bar \u2014 Peanut Butter",
+          "sales": 71836,
+          "units": 14287
+        },
+        {
+          "sku": "GH-SW-BER",
+          "product": "Sparkling Water \u2014 Berry",
+          "sales": 68974,
+          "units": 32244
+        },
+        {
+          "sku": "GH-PB-CHO",
+          "product": "Protein Bar \u2014 Chocolate",
+          "sales": 55127,
+          "units": 23060
+        }
+      ]
+    },
+    {
+      "id": "WM-004",
+      "name": "Walmart Supercenter - Phoenix, AZ",
+      "city": "Phoenix",
+      "state": "AZ",
+      "channel": "Walmart",
+      "sales": 366193,
+      "units": 150174,
+      "in_stock_pct": 93.5,
+      "velocity_upsw": 10.8,
+      "weeks_of_supply": 2.3,
+      "top_skus": [
+        {
+          "sku": "GH-PB-PB",
+          "product": "Protein Bar \u2014 Peanut Butter",
+          "sales": 65677,
+          "units": 18234
+        },
+        {
+          "sku": "GH-SW-LIM",
+          "product": "Sparkling Water \u2014 Lime",
+          "sales": 59741,
+          "units": 34107
+        },
+        {
+          "sku": "GH-PS-COL",
+          "product": "Prebiotic Soda \u2014 Cola",
+          "sales": 47851,
+          "units": 13802
+        }
+      ]
+    },
+    {
+      "id": "WM-005",
+      "name": "Walmart Supercenter - Tampa, FL",
+      "city": "Tampa",
+      "state": "FL",
+      "channel": "Walmart",
+      "sales": 350240,
+      "units": 154313,
+      "in_stock_pct": 96.4,
+      "velocity_upsw": 16.6,
+      "weeks_of_supply": 3.5,
+      "top_skus": [
+        {
+          "sku": "GH-SW-LIM",
+          "product": "Sparkling Water \u2014 Lime",
+          "sales": 62655,
+          "units": 28381
+        },
+        {
+          "sku": "GH-PB-CHO",
+          "product": "Protein Bar \u2014 Chocolate",
+          "sales": 55840,
+          "units": 16545
+        },
+        {
+          "sku": "GH-SW-BER",
+          "product": "Sparkling Water \u2014 Berry",
+          "sales": 51021,
+          "units": 21007
+        }
+      ]
+    },
+    {
+      "id": "WM-006",
+      "name": "Walmart Supercenter - Denver, CO",
+      "city": "Denver",
+      "state": "CO",
+      "channel": "Walmart",
+      "sales": 507039,
+      "units": 145296,
+      "in_stock_pct": 92.0,
+      "velocity_upsw": 12.5,
+      "weeks_of_supply": 3.0,
+      "top_skus": [
+        {
+          "sku": "GH-PB-CHO",
+          "product": "Protein Bar \u2014 Chocolate",
+          "sales": 84357,
+          "units": 16444
+        },
+        {
+          "sku": "GH-SW-LIM",
+          "product": "Sparkling Water \u2014 Lime",
+          "sales": 83823,
+          "units": 18824
+        },
+        {
+          "sku": "GH-SW-BER",
+          "product": "Sparkling Water \u2014 Berry",
+          "sales": 83020,
+          "units": 27317
+        }
+      ]
+    },
+    {
+      "id": "WM-007",
+      "name": "Walmart Supercenter - Minneapolis, MN",
+      "city": "Minneapolis",
+      "state": "MN",
+      "channel": "Walmart",
+      "sales": 558833,
+      "units": 168190,
+      "in_stock_pct": 92.3,
+      "velocity_upsw": 14.0,
+      "weeks_of_supply": 3.4,
+      "top_skus": [
+        {
+          "sku": "GH-PB-CHO",
+          "product": "Protein Bar \u2014 Chocolate",
+          "sales": 97699,
+          "units": 17186
+        },
+        {
+          "sku": "GH-PB-PB",
+          "product": "Protein Bar \u2014 Peanut Butter",
+          "sales": 91231,
+          "units": 18653
+        },
+        {
+          "sku": "GH-SW-LIM",
+          "product": "Sparkling Water \u2014 Lime",
+          "sales": 80034,
+          "units": 32096
+        }
+      ]
+    },
+    {
+      "id": "WM-008",
+      "name": "Walmart Supercenter - Rogers, AR",
+      "city": "Rogers",
+      "state": "AR",
+      "channel": "Walmart",
+      "sales": 474520,
+      "units": 154576,
+      "in_stock_pct": 89.9,
+      "velocity_upsw": 7.5,
+      "weeks_of_supply": 2.3,
+      "top_skus": [
+        {
+          "sku": "GH-SW-BER",
+          "product": "Sparkling Water \u2014 Berry",
+          "sales": 75973,
+          "units": 32772
+        },
+        {
+          "sku": "GH-PB-CHO",
+          "product": "Protein Bar \u2014 Chocolate",
+          "sales": 67353,
+          "units": 19739
+        },
+        {
+          "sku": "GH-SW-LIM",
+          "product": "Sparkling Water \u2014 Lime",
+          "sales": 65607,
+          "units": 23397
+        }
+      ]
+    },
+    {
+      "id": "WM-009",
+      "name": "Walmart Supercenter - Bentonville, AR",
+      "city": "Bentonville",
+      "state": "AR",
+      "channel": "Walmart",
+      "sales": 628498,
+      "units": 87346,
+      "in_stock_pct": 94.5,
+      "velocity_upsw": 11.0,
+      "weeks_of_supply": 3.5,
+      "top_skus": [
+        {
+          "sku": "GH-PB-BER",
+          "product": "Protein Bar \u2014 Berry",
+          "sales": 103171,
+          "units": 7846
+        },
+        {
+          "sku": "GH-PB-CHO",
+          "product": "Protein Bar \u2014 Chocolate",
+          "sales": 99766,
+          "units": 10228
+        },
+        {
+          "sku": "GH-PB-PB",
+          "product": "Protein Bar \u2014 Peanut Butter",
+          "sales": 83201,
+          "units": 8615
+        }
+      ]
+    },
+    {
+      "id": "WM-010",
+      "name": "Walmart Supercenter - Springdale, AR",
+      "city": "Springdale",
+      "state": "AR",
+      "channel": "Walmart",
+      "sales": 294457,
+      "units": 96201,
+      "in_stock_pct": 91.1,
+      "velocity_upsw": 7.6,
+      "weeks_of_supply": 4.3,
+      "top_skus": [
+        {
+          "sku": "GH-PB-PB",
+          "product": "Protein Bar \u2014 Peanut Butter",
+          "sales": 48783,
+          "units": 9837
+        },
+        {
+          "sku": "GH-PB-BER",
+          "product": "Protein Bar \u2014 Berry",
+          "sales": 46179,
+          "units": 12114
+        },
+        {
+          "sku": "GH-PB-CHO",
+          "product": "Protein Bar \u2014 Chocolate",
+          "sales": 41251,
+          "units": 11041
+        }
+      ]
+    },
+    {
+      "id": "TG-001",
+      "name": "Target - Tampa, FL",
+      "city": "Tampa",
+      "state": "FL",
+      "channel": "Target",
+      "sales": 228895,
+      "units": 68480,
+      "in_stock_pct": 89.5,
+      "velocity_upsw": 7.9,
+      "weeks_of_supply": 4.1,
+      "top_skus": [
+        {
+          "sku": "GH-PB-BER",
+          "product": "Protein Bar \u2014 Berry",
+          "sales": 38757,
+          "units": 8095
+        },
+        {
+          "sku": "GH-PB-PB",
+          "product": "Protein Bar \u2014 Peanut Butter",
+          "sales": 34781,
+          "units": 7267
+        },
+        {
+          "sku": "GH-SW-BER",
+          "product": "Sparkling Water \u2014 Berry",
+          "sales": 34290,
+          "units": 10319
+        }
+      ]
+    },
+    {
+      "id": "TG-002",
+      "name": "Target - Denver, CO",
+      "city": "Denver",
+      "state": "CO",
+      "channel": "Target",
+      "sales": 175898,
+      "units": 76346,
+      "in_stock_pct": 91.6,
+      "velocity_upsw": 14.8,
+      "weeks_of_supply": 3.9,
+      "top_skus": [
+        {
+          "sku": "GH-SW-LIM",
+          "product": "Sparkling Water \u2014 Lime",
+          "sales": 30763,
+          "units": 10569
+        },
+        {
+          "sku": "GH-PB-PB",
+          "product": "Protein Bar \u2014 Peanut Butter",
+          "sales": 28667,
+          "units": 8955
+        },
+        {
+          "sku": "GH-SW-BER",
+          "product": "Sparkling Water \u2014 Berry",
+          "sales": 27104,
+          "units": 17164
+        }
+      ]
+    },
+    {
+      "id": "TG-003",
+      "name": "Target - Minneapolis, MN",
+      "city": "Minneapolis",
+      "state": "MN",
+      "channel": "Target",
+      "sales": 179757,
+      "units": 86684,
+      "in_stock_pct": 91.6,
+      "velocity_upsw": 14.5,
+      "weeks_of_supply": 4.2,
+      "top_skus": [
+        {
+          "sku": "GH-SW-BER",
+          "product": "Sparkling Water \u2014 Berry",
+          "sales": 27752,
+          "units": 14779
+        },
+        {
+          "sku": "GH-SW-LIM",
+          "product": "Sparkling Water \u2014 Lime",
+          "sales": 26477,
+          "units": 21292
+        },
+        {
+          "sku": "GH-PB-PB",
+          "product": "Protein Bar \u2014 Peanut Butter",
+          "sales": 25662,
+          "units": 12549
+        }
+      ]
+    },
+    {
+      "id": "TG-004",
+      "name": "Target - Dallas, TX",
+      "city": "Dallas",
+      "state": "TX",
+      "channel": "Target",
+      "sales": 174449,
+      "units": 78497,
+      "in_stock_pct": 95.3,
+      "velocity_upsw": 15.2,
+      "weeks_of_supply": 3.1,
+      "top_skus": [
+        {
+          "sku": "GH-PB-CHO",
+          "product": "Protein Bar \u2014 Chocolate",
+          "sales": 36179,
+          "units": 11720
+        },
+        {
+          "sku": "GH-SW-BER",
+          "product": "Sparkling Water \u2014 Berry",
+          "sales": 28346,
+          "units": 12838
+        },
+        {
+          "sku": "GH-PB-BER",
+          "product": "Protein Bar \u2014 Berry",
+          "sales": 23309,
+          "units": 7697
+        }
+      ]
+    },
+    {
+      "id": "TG-005",
+      "name": "Target - Chicago, IL",
+      "city": "Chicago",
+      "state": "IL",
+      "channel": "Target",
+      "sales": 199168,
+      "units": 43513,
+      "in_stock_pct": 91.2,
+      "velocity_upsw": 9.3,
+      "weeks_of_supply": 3.3,
+      "top_skus": [
+        {
+          "sku": "GH-PB-CHO",
+          "product": "Protein Bar \u2014 Chocolate",
+          "sales": 36614,
+          "units": 5033
+        },
+        {
+          "sku": "GH-SW-LIM",
+          "product": "Sparkling Water \u2014 Lime",
+          "sales": 31949,
+          "units": 9428
+        },
+        {
+          "sku": "GH-PB-BER",
+          "product": "Protein Bar \u2014 Berry",
+          "sales": 29743,
+          "units": 5003
+        }
+      ]
+    },
+    {
+      "id": "TG-006",
+      "name": "Target - Atlanta, GA",
+      "city": "Atlanta",
+      "state": "GA",
+      "channel": "Target",
+      "sales": 210644,
+      "units": 30002,
+      "in_stock_pct": 96.0,
+      "velocity_upsw": 8.7,
+      "weeks_of_supply": 4.3,
+      "top_skus": [
+        {
+          "sku": "GH-PB-CHO",
+          "product": "Protein Bar \u2014 Chocolate",
+          "sales": 32924,
+          "units": 2867
+        },
+        {
+          "sku": "GH-PB-PB",
+          "product": "Protein Bar \u2014 Peanut Butter",
+          "sales": 32096,
+          "units": 3997
+        },
+        {
+          "sku": "GH-PS-COL",
+          "product": "Prebiotic Soda \u2014 Cola",
+          "sales": 30271,
+          "units": 4493
+        }
+      ]
+    },
+    {
+      "id": "TG-007",
+      "name": "Target - Houston, TX",
+      "city": "Houston",
+      "state": "TX",
+      "channel": "Target",
+      "sales": 136790,
+      "units": 70661,
+      "in_stock_pct": 94.4,
+      "velocity_upsw": 11.3,
+      "weeks_of_supply": 3.7,
+      "top_skus": [
+        {
+          "sku": "GH-PB-BER",
+          "product": "Protein Bar \u2014 Berry",
+          "sales": 24194,
+          "units": 6820
+        },
+        {
+          "sku": "GH-PB-CHO",
+          "product": "Protein Bar \u2014 Chocolate",
+          "sales": 20294,
+          "units": 7724
+        },
+        {
+          "sku": "GH-SW-LIM",
+          "product": "Sparkling Water \u2014 Lime",
+          "sales": 19022,
+          "units": 11830
+        }
+      ]
+    },
+    {
+      "id": "TG-008",
+      "name": "Target - Phoenix, AZ",
+      "city": "Phoenix",
+      "state": "AZ",
+      "channel": "Target",
+      "sales": 154553,
+      "units": 30489,
+      "in_stock_pct": 95.4,
+      "velocity_upsw": 15.0,
+      "weeks_of_supply": 2.5,
+      "top_skus": [
+        {
+          "sku": "GH-PB-CHO",
+          "product": "Protein Bar \u2014 Chocolate",
+          "sales": 26635,
+          "units": 5029
+        },
+        {
+          "sku": "GH-SW-LIM",
+          "product": "Sparkling Water \u2014 Lime",
+          "sales": 23287,
+          "units": 6203
+        },
+        {
+          "sku": "GH-SW-BER",
+          "product": "Sparkling Water \u2014 Berry",
+          "sales": 21238,
+          "units": 4638
+        }
+      ]
+    }
+  ],
+  "channel_products": [
+    {
+      "channel": "Amazon",
+      "products": [
+        {
+          "sku": "GH-PB-CHO",
+          "product": "Protein Bar \u2014 Chocolate",
+          "sales": 374603,
+          "units": 98796
+        },
+        {
+          "sku": "GH-PB-PB",
+          "product": "Protein Bar \u2014 Peanut Butter",
+          "sales": 344635,
+          "units": 90893
+        },
+        {
+          "sku": "GH-SW-LIM",
+          "product": "Sparkling Water \u2014 Lime",
+          "sales": 318413,
+          "units": 147276
+        },
+        {
+          "sku": "GH-SW-BER",
+          "product": "Sparkling Water \u2014 Berry",
+          "sales": 299683,
+          "units": 138613
+        },
+        {
+          "sku": "GH-PB-BER",
+          "product": "Protein Bar \u2014 Berry",
+          "sales": 292191,
+          "units": 77061
+        },
+        {
+          "sku": "GH-PS-COL",
+          "product": "Prebiotic Soda \u2014 Cola",
+          "sales": 262222,
+          "units": 96931
+        },
+        {
+          "sku": "GH-PS-GIN",
+          "product": "Prebiotic Soda \u2014 Ginger",
+          "sales": 232254,
+          "units": 85853
+        },
+        {
+          "sku": "GH-TM-MIX",
+          "product": "Trail Mix \u2014 Nut Clusters",
+          "sales": 206032,
+          "units": 38004
+        }
+      ]
+    },
+    {
+      "channel": "DTC",
+      "products": [
+        {
+          "sku": "GH-PB-CHO",
+          "product": "Protein Bar \u2014 Chocolate",
+          "sales": 156085,
+          "units": 41163
+        },
+        {
+          "sku": "GH-PB-PB",
+          "product": "Protein Bar \u2014 Peanut Butter",
+          "sales": 143598,
+          "units": 37870
+        },
+        {
+          "sku": "GH-SW-LIM",
+          "product": "Sparkling Water \u2014 Lime",
+          "sales": 132672,
+          "units": 61362
+        },
+        {
+          "sku": "GH-SW-BER",
+          "product": "Sparkling Water \u2014 Berry",
+          "sales": 124868,
+          "units": 57753
+        },
+        {
+          "sku": "GH-PB-BER",
+          "product": "Protein Bar \u2014 Berry",
+          "sales": 121746,
+          "units": 32107
+        },
+        {
+          "sku": "GH-PS-COL",
+          "product": "Prebiotic Soda \u2014 Cola",
+          "sales": 109259,
+          "units": 40386
+        },
+        {
+          "sku": "GH-PS-GIN",
+          "product": "Prebiotic Soda \u2014 Ginger",
+          "sales": 96772,
+          "units": 35771
+        },
+        {
+          "sku": "GH-TM-MIX",
+          "product": "Trail Mix \u2014 Nut Clusters",
+          "sales": 85847,
+          "units": 15834
+        }
+      ]
+    },
+    {
+      "channel": "Distributor",
+      "products": [
+        {
+          "sku": "GH-PB-CHO",
+          "product": "Protein Bar \u2014 Chocolate",
+          "sales": 124868,
+          "units": 32930
+        },
+        {
+          "sku": "GH-PB-PB",
+          "product": "Protein Bar \u2014 Peanut Butter",
+          "sales": 114878,
+          "units": 30296
+        },
+        {
+          "sku": "GH-SW-LIM",
+          "product": "Sparkling Water \u2014 Lime",
+          "sales": 106138,
+          "units": 49090
+        },
+        {
+          "sku": "GH-SW-BER",
+          "product": "Sparkling Water \u2014 Berry",
+          "sales": 99894,
+          "units": 46202
+        },
+        {
+          "sku": "GH-PB-BER",
+          "product": "Protein Bar \u2014 Berry",
+          "sales": 97397,
+          "units": 25686
+        },
+        {
+          "sku": "GH-PS-COL",
+          "product": "Prebiotic Soda \u2014 Cola",
+          "sales": 87408,
+          "units": 32309
+        },
+        {
+          "sku": "GH-PS-GIN",
+          "product": "Prebiotic Soda \u2014 Ginger",
+          "sales": 77418,
+          "units": 28616
+        },
+        {
+          "sku": "GH-TM-MIX",
+          "product": "Trail Mix \u2014 Nut Clusters",
+          "sales": 68677,
+          "units": 12667
+        }
+      ]
+    },
+    {
+      "channel": "Target",
+      "products": [
+        {
+          "sku": "GH-PB-CHO",
+          "product": "Protein Bar \u2014 Chocolate",
+          "sales": 234752,
+          "units": 61911
+        },
+        {
+          "sku": "GH-PB-PB",
+          "product": "Protein Bar \u2014 Peanut Butter",
+          "sales": 215971,
+          "units": 56958
+        },
+        {
+          "sku": "GH-SW-LIM",
+          "product": "Sparkling Water \u2014 Lime",
+          "sales": 199539,
+          "units": 92291
+        },
+        {
+          "sku": "GH-SW-BER",
+          "product": "Sparkling Water \u2014 Berry",
+          "sales": 187801,
+          "units": 86862
+        },
+        {
+          "sku": "GH-PB-BER",
+          "product": "Protein Bar \u2014 Berry",
+          "sales": 183106,
+          "units": 48291
+        },
+        {
+          "sku": "GH-PS-COL",
+          "product": "Prebiotic Soda \u2014 Cola",
+          "sales": 164326,
+          "units": 60743
+        },
+        {
+          "sku": "GH-PS-GIN",
+          "product": "Prebiotic Soda \u2014 Ginger",
+          "sales": 145546,
+          "units": 53801
+        },
+        {
+          "sku": "GH-TM-MIX",
+          "product": "Trail Mix \u2014 Nut Clusters",
+          "sales": 129113,
+          "units": 23815
+        }
+      ]
+    },
+    {
+      "channel": "Walmart",
+      "products": [
+        {
+          "sku": "GH-PB-CHO",
+          "product": "Protein Bar \u2014 Chocolate",
+          "sales": 694889,
+          "units": 183270
+        },
+        {
+          "sku": "GH-PB-PB",
+          "product": "Protein Bar \u2014 Peanut Butter",
+          "sales": 639298,
+          "units": 168608
+        },
+        {
+          "sku": "GH-SW-LIM",
+          "product": "Sparkling Water \u2014 Lime",
+          "sales": 590656,
+          "units": 273201
+        },
+        {
+          "sku": "GH-SW-BER",
+          "product": "Sparkling Water \u2014 Berry",
+          "sales": 555912,
+          "units": 257131
+        },
+        {
+          "sku": "GH-PB-BER",
+          "product": "Protein Bar \u2014 Berry",
+          "sales": 542014,
+          "units": 142950
+        },
+        {
+          "sku": "GH-PS-COL",
+          "product": "Prebiotic Soda \u2014 Cola",
+          "sales": 486423,
+          "units": 179810
+        },
+        {
+          "sku": "GH-PS-GIN",
+          "product": "Prebiotic Soda \u2014 Ginger",
+          "sales": 430831,
+          "units": 159261
+        },
+        {
+          "sku": "GH-TM-MIX",
+          "product": "Trail Mix \u2014 Nut Clusters",
+          "sales": 382189,
+          "units": 70498
+        }
+      ]
+    }
+  ]
 }

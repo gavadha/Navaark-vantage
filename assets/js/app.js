@@ -11,6 +11,10 @@
   var state = { config: null, data: null, brands: [] };
   // Exceptions table sort state. key null = the data order (highest-impact first).
   var excSort = { key: null, dir: 1 };
+  // Channel drill-down state. null channel = panel closed.
+  var drillChannel = null;
+  var drillSort = { key: "sales", dir: -1 };
+  var drillExpanded = null;
 
   function $(id) { return document.getElementById(id); }
   function fmtMoney(n) {
@@ -143,7 +147,7 @@
       };
     });
     $("scorecard-body").innerHTML = rows.map(function (r) {
-      return "<tr><td><span class='dot' style='background:" + r.color + "'></span>" + r.channel + "</td>" +
+      return "<tr data-channel=\"" + r.channel + "\"><td><span class='dot' style='background:" + r.color + "'></span>" + r.channel + "</td>" +
         "<td class='num'>" + fmtMoney(r.sales) + "</td>" +
         "<td class='num'>" + r.share.toFixed(1) + "%</td>" +
         "<td class='num " + (r.yoy >= 0 ? "up" : "down") + "'>" + (r.yoy >= 0 ? "+" : "") + r.yoy.toFixed(1) + "%</td>" +
@@ -152,6 +156,84 @@
         "<td class='num'>" + r.inStock.toFixed(1) + "%</td>" +
         "<td class='num'>" + r.otif.toFixed(1) + "%</td></tr>";
     }).join("");
+  }
+
+  // Channel drill-down: click a scorecard row to see that channel's stores
+  // (Walmart / Target) or top products (Amazon / DTC / Distributor).
+  function isStoreChannel(ch) { return ch === "Walmart" || ch === "Target"; }
+  function drillRows(channel) {
+    var rows = (state.data.stores || []).filter(function (s) { return s.channel === channel; }).slice();
+    var key = drillSort.key, dir = drillSort.dir;
+    rows.sort(function (a, b) {
+      var va = a[key], vb = b[key];
+      var cmp = (typeof va === "number" && typeof vb === "number")
+        ? va - vb
+        : String(va).localeCompare(String(vb));
+      return cmp * dir;
+    });
+    return rows;
+  }
+  function renderDrill() {
+    var el = $("channel-detail");
+    if (!drillChannel) { el.style.display = "none"; el.innerHTML = ""; return; }
+    var color = state.config.channel_colors[drillChannel] || "#666";
+    var head = "<div class='card-head'><h2><span class='dot' style='background:" + color + "'></span>" +
+      drillChannel + (isStoreChannel(drillChannel) ? " - stores" : " - top products") + "</h2>" +
+      "<button type='button' class='linklike' data-drill='back'>Back to all channels</button></div>";
+    if (isStoreChannel(drillChannel)) {
+      var ind = function (k) { return drillSort.key === k ? (drillSort.dir === 1 ? "▲" : "▼") : ""; };
+      var html = head + "<p class='muted'>Click a store to see its top products.</p>" +
+        "<table><thead><tr>" +
+        "<th class='drill-sortable' data-drill-sort='name'>Store <span class='sort-ind'>" + ind("name") + "</span></th>" +
+        "<th class='num drill-sortable' data-drill-sort='sales'>Sales <span class='sort-ind'>" + ind("sales") + "</span></th>" +
+        "<th class='num drill-sortable' data-drill-sort='units'>Units <span class='sort-ind'>" + ind("units") + "</span></th>" +
+        "<th class='num drill-sortable' data-drill-sort='velocity_upsw'>Velocity <span class='sort-ind'>" + ind("velocity_upsw") + "</span></th>" +
+        "<th class='num drill-sortable' data-drill-sort='in_stock_pct'>In-stock % <span class='sort-ind'>" + ind("in_stock_pct") + "</span></th>" +
+        "<th class='num drill-sortable' data-drill-sort='weeks_of_supply'>Weeks of supply <span class='sort-ind'>" + ind("weeks_of_supply") + "</span></th>" +
+        "</tr></thead><tbody>";
+      drillRows(drillChannel).forEach(function (s) {
+        html += "<tr class='store-row' data-store='" + s.id + "'><td>" + s.name + "</td>" +
+          "<td class='num'>" + fmtMoney(s.sales) + "</td>" +
+          "<td class='num'>" + fmtNum(s.units) + "</td>" +
+          "<td class='num'>" + s.velocity_upsw.toFixed(1) + "</td>" +
+          "<td class='num'>" + s.in_stock_pct.toFixed(1) + "%</td>" +
+          "<td class='num'>" + s.weeks_of_supply.toFixed(1) + "</td></tr>";
+        if (drillExpanded === s.id) {
+          html += "<tr class='store-detail'><td colspan='6'><strong>Top products at this store</strong>" +
+            "<table><thead><tr><th>Product</th><th class='num'>Sales</th><th class='num'>Units</th></tr></thead><tbody>" +
+            s.top_skus.map(function (t) {
+              return "<tr><td>" + t.product + " <span class='muted'>(" + t.sku + ")</span></td>" +
+                "<td class='num'>" + fmtMoney(t.sales) + "</td>" +
+                "<td class='num'>" + fmtNum(t.units) + "</td></tr>";
+            }).join("") + "</tbody></table></td></tr>";
+        }
+      });
+      el.innerHTML = html + "</tbody></table>";
+    } else {
+      var cp = null;
+      (state.data.channel_products || []).forEach(function (c) { if (c.channel === drillChannel) cp = c; });
+      var prods = cp ? cp.products : [];
+      el.innerHTML = head + "<p>" + drillChannel + " has no stores. Here are the top products sold through " + drillChannel + ".</p>" +
+        "<table><thead><tr><th>Product</th><th class='num'>Sales</th><th class='num'>Units</th></tr></thead><tbody>" +
+        prods.map(function (p) {
+          return "<tr><td>" + p.product + " <span class='muted'>(" + p.sku + ")</span></td>" +
+            "<td class='num'>" + fmtMoney(p.sales) + "</td>" +
+            "<td class='num'>" + fmtNum(p.units) + "</td></tr>";
+        }).join("") + "</tbody></table>";
+    }
+    el.style.display = "";
+  }
+  function openDrill(channel) {
+    drillChannel = channel;
+    drillSort = { key: "sales", dir: -1 };
+    drillExpanded = null;
+    renderDrill();
+    $("channel-detail").scrollIntoView({ behavior: "smooth", block: "nearest" });
+  }
+  function closeDrill() {
+    drillChannel = null; drillExpanded = null;
+    var el = $("channel-detail");
+    if (el) { el.style.display = "none"; el.innerHTML = ""; }
   }
 
   function renderProducts() {
@@ -254,6 +336,7 @@
   }
 
   function renderAll() {
+    closeDrill();
     renderHeader(); renderKpis(); renderTrend(); renderScorecard();
     renderProducts(); renderExceptions(); renderChanges(); renderForecast(); renderInventoryFinance();
   }
@@ -265,6 +348,32 @@
   }
   document.querySelectorAll(".tab").forEach(function (b) {
     b.addEventListener("click", function () { setTab(b.dataset.tab); });
+  });
+
+  // Channel drill-down: click a scorecard row, a store row, a drill header,
+  // or the back link. Delegated, so it survives re-renders.
+  $("scorecard-body").addEventListener("click", function (e) {
+    var tr = e.target.closest ? e.target.closest("tr[data-channel]") : null;
+    if (tr) openDrill(tr.getAttribute("data-channel"));
+  });
+  $("channel-detail").addEventListener("click", function (e) {
+    if (!e.target.closest) return;
+    var back = e.target.closest("[data-drill='back']");
+    if (back) { closeDrill(); return; }
+    var th = e.target.closest("[data-drill-sort]");
+    if (th) {
+      var key = th.getAttribute("data-drill-sort");
+      if (drillSort.key === key) { drillSort.dir = -drillSort.dir; }
+      else { drillSort = { key: key, dir: key === "name" ? 1 : -1 }; }
+      renderDrill();
+      return;
+    }
+    var row = e.target.closest("tr.store-row");
+    if (row) {
+      var id = row.getAttribute("data-store");
+      drillExpanded = (drillExpanded === id) ? null : id;
+      renderDrill();
+    }
   });
 
   // Exceptions table: click a header to sort (click again to reverse),

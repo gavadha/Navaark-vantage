@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "brand_slug": "health-beauty",
-  "headline": "Sales up 6% vs last year — Walmart led, one SKU at stockout risk",
+  "headline": "Sales up 6% vs last year \u2014 Walmart led, one SKU at stockout risk",
   "weekly": [
     {
       "week": 1,
@@ -1627,7 +1627,7 @@
       "product": "Moisturizer SPF 30",
       "channel": "Walmart",
       "week": "FY26-W14",
-      "issue": "Stockout — in-stock 81%, 2 weeks of lost sales",
+      "issue": "Stockout \u2014 in-stock 81%, 2 weeks of lost sales",
       "units_lost_est": 1840,
       "action": "Expedite replenishment; check DC allocation"
     },
@@ -1636,7 +1636,7 @@
       "product": "Sensitive Deodorant",
       "channel": "Target",
       "week": "FY26-W16",
-      "issue": "Deduction spike — shortage / compliance deductions up 2.1% of sales",
+      "issue": "Deduction spike \u2014 shortage / compliance deductions up 2.1% of sales",
       "units_lost_est": 0,
       "action": "Pull deduction detail by PO; dispute invalid shortages"
     },
@@ -1645,7 +1645,7 @@
       "product": "Vitamin C Serum 30ml",
       "channel": "Amazon",
       "week": "FY26-W20",
-      "issue": "Velocity down 12% vs prior year — Buy Box lost 3 days",
+      "issue": "Velocity down 12% vs prior year \u2014 Buy Box lost 3 days",
       "units_lost_est": 620,
       "action": "Check price vs competitors; restore Buy Box"
     },
@@ -1654,7 +1654,7 @@
       "product": "Shampoo Bar",
       "channel": "DTC",
       "week": "FY26-W18",
-      "issue": "Weeks of supply 1.2 — at risk of stockout in 2 weeks",
+      "issue": "Weeks of supply 1.2 \u2014 at risk of stockout in 2 weeks",
       "units_lost_est": 0,
       "action": "Raise next order; confirm distributor inventory"
     }
@@ -1663,31 +1663,31 @@
     {
       "channel": "Walmart",
       "next_4w_sales_forecast": 178818.82,
-      "confidence": "Moderate — trend + seasonality, 4-week horizon",
+      "confidence": "Moderate \u2014 trend + seasonality, 4-week horizon",
       "risk": "Stockout risk"
     },
     {
       "channel": "Amazon",
       "next_4w_sales_forecast": 102182.17,
-      "confidence": "Moderate — trend + seasonality, 4-week horizon",
+      "confidence": "Moderate \u2014 trend + seasonality, 4-week horizon",
       "risk": "Stable"
     },
     {
       "channel": "Target",
       "next_4w_sales_forecast": 68121.45,
-      "confidence": "Moderate — trend + seasonality, 4-week horizon",
+      "confidence": "Moderate \u2014 trend + seasonality, 4-week horizon",
       "risk": "Stockout risk"
     },
     {
       "channel": "DTC",
       "next_4w_sales_forecast": 42575.9,
-      "confidence": "Moderate — trend + seasonality, 4-week horizon",
+      "confidence": "Moderate \u2014 trend + seasonality, 4-week horizon",
       "risk": "Stable"
     }
   ],
   "what_changed": [
     {
-      "title": "Sales up 6% vs last year — Walmart led",
+      "title": "Sales up 6% vs last year \u2014 Walmart led",
       "detail": "Growth is broad-based across channels, with the top SKU outperforming plan.",
       "action": "Hold current promo cadence; protect top-SKU inventory."
     },
@@ -1698,9 +1698,601 @@
     },
     {
       "title": "Deductions ticked up in one channel",
-      "detail": "A small deduction spike appeared in the last 4 weeks — mostly shortage claims.",
+      "detail": "A small deduction spike appeared in the last 4 weeks \u2014 mostly shortage claims.",
       "action": "Pull deduction detail by PO before disputing."
     }
   ],
-  "notes": "Sample data in the Vantage framework — your data drops into the same framework."
+  "notes": "Sample data in the Vantage framework \u2014 your data drops into the same framework.",
+  "stores": [
+    {
+      "id": "WM-001",
+      "name": "Walmart Supercenter - Atlanta, GA",
+      "city": "Atlanta",
+      "state": "GA",
+      "channel": "Walmart",
+      "sales": 214156,
+      "units": 8272,
+      "in_stock_pct": 95.3,
+      "velocity_upsw": 1.0,
+      "weeks_of_supply": 4.0,
+      "top_skus": [
+        {
+          "sku": "LB-VC-SER",
+          "product": "Vitamin C Serum 30ml",
+          "sales": 56729,
+          "units": 1931
+        },
+        {
+          "sku": "LB-MOI-SPF",
+          "product": "Moisturizer SPF 30",
+          "sales": 49515,
+          "units": 1824
+        },
+        {
+          "sku": "LB-DEO-SEN",
+          "product": "Sensitive Deodorant",
+          "sales": 39022,
+          "units": 1678
+        }
+      ]
+    },
+    {
+      "id": "WM-002",
+      "name": "Walmart Supercenter - Chicago, IL",
+      "city": "Chicago",
+      "state": "IL",
+      "channel": "Walmart",
+      "sales": 153584,
+      "units": 9120,
+      "in_stock_pct": 92.0,
+      "velocity_upsw": 1.1,
+      "weeks_of_supply": 2.8,
+      "top_skus": [
+        {
+          "sku": "LB-VC-SER",
+          "product": "Vitamin C Serum 30ml",
+          "sales": 47228,
+          "units": 1581
+        },
+        {
+          "sku": "LB-MOI-SPF",
+          "product": "Moisturizer SPF 30",
+          "sales": 38464,
+          "units": 1769
+        },
+        {
+          "sku": "LB-DEO-SEN",
+          "product": "Sensitive Deodorant",
+          "sales": 27781,
+          "units": 2169
+        }
+      ]
+    },
+    {
+      "id": "WM-003",
+      "name": "Walmart Supercenter - Phoenix, AZ",
+      "city": "Phoenix",
+      "state": "AZ",
+      "channel": "Walmart",
+      "sales": 82760,
+      "units": 3916,
+      "in_stock_pct": 93.4,
+      "velocity_upsw": 0.8,
+      "weeks_of_supply": 4.0,
+      "top_skus": [
+        {
+          "sku": "LB-VC-SER",
+          "product": "Vitamin C Serum 30ml",
+          "sales": 20656,
+          "units": 703
+        },
+        {
+          "sku": "LB-SHA-BAR",
+          "product": "Shampoo Bar",
+          "sales": 18793,
+          "units": 1007
+        },
+        {
+          "sku": "LB-MOI-SPF",
+          "product": "Moisturizer SPF 30",
+          "sales": 17875,
+          "units": 775
+        }
+      ]
+    },
+    {
+      "id": "WM-004",
+      "name": "Walmart Supercenter - Tampa, FL",
+      "city": "Tampa",
+      "state": "FL",
+      "channel": "Walmart",
+      "sales": 92738,
+      "units": 4252,
+      "in_stock_pct": 95.8,
+      "velocity_upsw": 1.3,
+      "weeks_of_supply": 2.3,
+      "top_skus": [
+        {
+          "sku": "LB-VC-SER",
+          "product": "Vitamin C Serum 30ml",
+          "sales": 24932,
+          "units": 501
+        },
+        {
+          "sku": "LB-MOI-SPF",
+          "product": "Moisturizer SPF 30",
+          "sales": 24473,
+          "units": 783
+        },
+        {
+          "sku": "LB-CLN-GEL",
+          "product": "Gentle Cleanser",
+          "sales": 17057,
+          "units": 651
+        }
+      ]
+    },
+    {
+      "id": "WM-005",
+      "name": "Walmart Supercenter - Denver, CO",
+      "city": "Denver",
+      "state": "CO",
+      "channel": "Walmart",
+      "sales": 103866,
+      "units": 6379,
+      "in_stock_pct": 94.1,
+      "velocity_upsw": 1.0,
+      "weeks_of_supply": 3.7,
+      "top_skus": [
+        {
+          "sku": "LB-MOI-SPF",
+          "product": "Moisturizer SPF 30",
+          "sales": 28732,
+          "units": 1191
+        },
+        {
+          "sku": "LB-DEO-SEN",
+          "product": "Sensitive Deodorant",
+          "sales": 21271,
+          "units": 1507
+        },
+        {
+          "sku": "LB-VC-SER",
+          "product": "Vitamin C Serum 30ml",
+          "sales": 20629,
+          "units": 1149
+        }
+      ]
+    },
+    {
+      "id": "WM-006",
+      "name": "Walmart Supercenter - Minneapolis, MN",
+      "city": "Minneapolis",
+      "state": "MN",
+      "channel": "Walmart",
+      "sales": 75790,
+      "units": 7464,
+      "in_stock_pct": 93.8,
+      "velocity_upsw": 1.1,
+      "weeks_of_supply": 3.6,
+      "top_skus": [
+        {
+          "sku": "LB-SHA-BAR",
+          "product": "Shampoo Bar",
+          "sales": 17056,
+          "units": 1678
+        },
+        {
+          "sku": "LB-MOI-SPF",
+          "product": "Moisturizer SPF 30",
+          "sales": 16124,
+          "units": 1174
+        },
+        {
+          "sku": "LB-VC-SER",
+          "product": "Vitamin C Serum 30ml",
+          "sales": 15530,
+          "units": 1703
+        }
+      ]
+    },
+    {
+      "id": "WM-007",
+      "name": "Walmart Supercenter - Rogers, AR",
+      "city": "Rogers",
+      "state": "AR",
+      "channel": "Walmart",
+      "sales": 170722,
+      "units": 9492,
+      "in_stock_pct": 89.9,
+      "velocity_upsw": 0.7,
+      "weeks_of_supply": 4.2,
+      "top_skus": [
+        {
+          "sku": "LB-VC-SER",
+          "product": "Vitamin C Serum 30ml",
+          "sales": 50680,
+          "units": 1298
+        },
+        {
+          "sku": "LB-MOI-SPF",
+          "product": "Moisturizer SPF 30",
+          "sales": 41042,
+          "units": 1969
+        },
+        {
+          "sku": "LB-DEO-SEN",
+          "product": "Sensitive Deodorant",
+          "sales": 33282,
+          "units": 2570
+        }
+      ]
+    },
+    {
+      "id": "WM-008",
+      "name": "Walmart Supercenter - Bentonville, AR",
+      "city": "Bentonville",
+      "state": "AR",
+      "channel": "Walmart",
+      "sales": 194859,
+      "units": 4929,
+      "in_stock_pct": 92.8,
+      "velocity_upsw": 1.0,
+      "weeks_of_supply": 2.9,
+      "top_skus": [
+        {
+          "sku": "LB-SHA-BAR",
+          "product": "Shampoo Bar",
+          "sales": 46700,
+          "units": 1550
+        },
+        {
+          "sku": "LB-DEO-SEN",
+          "product": "Sensitive Deodorant",
+          "sales": 40634,
+          "units": 1051
+        },
+        {
+          "sku": "LB-MOI-SPF",
+          "product": "Moisturizer SPF 30",
+          "sales": 39688,
+          "units": 625
+        }
+      ]
+    },
+    {
+      "id": "TG-001",
+      "name": "Target - Minneapolis, MN",
+      "city": "Minneapolis",
+      "state": "MN",
+      "channel": "Target",
+      "sales": 102555,
+      "units": 2499,
+      "in_stock_pct": 96.2,
+      "velocity_upsw": 1.0,
+      "weeks_of_supply": 3.7,
+      "top_skus": [
+        {
+          "sku": "LB-VC-SER",
+          "product": "Vitamin C Serum 30ml",
+          "sales": 33700,
+          "units": 345
+        },
+        {
+          "sku": "LB-SHA-BAR",
+          "product": "Shampoo Bar",
+          "sales": 24423,
+          "units": 588
+        },
+        {
+          "sku": "LB-MOI-SPF",
+          "product": "Moisturizer SPF 30",
+          "sales": 18348,
+          "units": 592
+        }
+      ]
+    },
+    {
+      "id": "TG-002",
+      "name": "Target - Dallas, TX",
+      "city": "Dallas",
+      "state": "TX",
+      "channel": "Target",
+      "sales": 65797,
+      "units": 4023,
+      "in_stock_pct": 96.6,
+      "velocity_upsw": 1.2,
+      "weeks_of_supply": 4.0,
+      "top_skus": [
+        {
+          "sku": "LB-VC-SER",
+          "product": "Vitamin C Serum 30ml",
+          "sales": 17422,
+          "units": 563
+        },
+        {
+          "sku": "LB-DEO-SEN",
+          "product": "Sensitive Deodorant",
+          "sales": 13752,
+          "units": 1316
+        },
+        {
+          "sku": "LB-CLN-GEL",
+          "product": "Gentle Cleanser",
+          "sales": 12735,
+          "units": 637
+        }
+      ]
+    },
+    {
+      "id": "TG-003",
+      "name": "Target - Chicago, IL",
+      "city": "Chicago",
+      "state": "IL",
+      "channel": "Target",
+      "sales": 58937,
+      "units": 2351,
+      "in_stock_pct": 92.2,
+      "velocity_upsw": 1.2,
+      "weeks_of_supply": 3.2,
+      "top_skus": [
+        {
+          "sku": "LB-VC-SER",
+          "product": "Vitamin C Serum 30ml",
+          "sales": 15166,
+          "units": 385
+        },
+        {
+          "sku": "LB-MOI-SPF",
+          "product": "Moisturizer SPF 30",
+          "sales": 14706,
+          "units": 370
+        },
+        {
+          "sku": "LB-SHA-BAR",
+          "product": "Shampoo Bar",
+          "sales": 12458,
+          "units": 671
+        }
+      ]
+    },
+    {
+      "id": "TG-004",
+      "name": "Target - Atlanta, GA",
+      "city": "Atlanta",
+      "state": "GA",
+      "channel": "Target",
+      "sales": 50923,
+      "units": 4841,
+      "in_stock_pct": 94.5,
+      "velocity_upsw": 1.3,
+      "weeks_of_supply": 2.9,
+      "top_skus": [
+        {
+          "sku": "LB-VC-SER",
+          "product": "Vitamin C Serum 30ml",
+          "sales": 13320,
+          "units": 800
+        },
+        {
+          "sku": "LB-MOI-SPF",
+          "product": "Moisturizer SPF 30",
+          "sales": 11295,
+          "units": 670
+        },
+        {
+          "sku": "LB-SHA-BAR",
+          "product": "Shampoo Bar",
+          "sales": 9245,
+          "units": 1604
+        }
+      ]
+    },
+    {
+      "id": "TG-005",
+      "name": "Target - Houston, TX",
+      "city": "Houston",
+      "state": "TX",
+      "channel": "Target",
+      "sales": 78212,
+      "units": 2880,
+      "in_stock_pct": 92.8,
+      "velocity_upsw": 1.3,
+      "weeks_of_supply": 4.2,
+      "top_skus": [
+        {
+          "sku": "LB-MOI-SPF",
+          "product": "Moisturizer SPF 30",
+          "sales": 21590,
+          "units": 517
+        },
+        {
+          "sku": "LB-VC-SER",
+          "product": "Vitamin C Serum 30ml",
+          "sales": 20105,
+          "units": 520
+        },
+        {
+          "sku": "LB-DEO-SEN",
+          "product": "Sensitive Deodorant",
+          "sales": 14994,
+          "units": 733
+        }
+      ]
+    },
+    {
+      "id": "TG-006",
+      "name": "Target - Phoenix, AZ",
+      "city": "Phoenix",
+      "state": "AZ",
+      "channel": "Target",
+      "sales": 58233,
+      "units": 3901,
+      "in_stock_pct": 90.0,
+      "velocity_upsw": 0.9,
+      "weeks_of_supply": 2.5,
+      "top_skus": [
+        {
+          "sku": "LB-VC-SER",
+          "product": "Vitamin C Serum 30ml",
+          "sales": 16244,
+          "units": 854
+        },
+        {
+          "sku": "LB-MOI-SPF",
+          "product": "Moisturizer SPF 30",
+          "sales": 12719,
+          "units": 500
+        },
+        {
+          "sku": "LB-DEO-SEN",
+          "product": "Sensitive Deodorant",
+          "sales": 10445,
+          "units": 866
+        }
+      ]
+    }
+  ],
+  "channel_products": [
+    {
+      "channel": "Amazon",
+      "products": [
+        {
+          "sku": "LB-VC-SER",
+          "product": "Vitamin C Serum 30ml",
+          "sales": 162398,
+          "units": 5225
+        },
+        {
+          "sku": "LB-MOI-SPF",
+          "product": "Moisturizer SPF 30",
+          "sales": 142911,
+          "units": 5364
+        },
+        {
+          "sku": "LB-SHA-BAR",
+          "product": "Shampoo Bar",
+          "sales": 116927,
+          "units": 7523
+        },
+        {
+          "sku": "LB-DEO-SEN",
+          "product": "Sensitive Deodorant",
+          "sales": 105559,
+          "units": 7924
+        },
+        {
+          "sku": "LB-CLN-GEL",
+          "product": "Gentle Cleanser",
+          "sales": 94191,
+          "units": 4714
+        }
+      ]
+    },
+    {
+      "channel": "DTC",
+      "products": [
+        {
+          "sku": "LB-VC-SER",
+          "product": "Vitamin C Serum 30ml",
+          "sales": 67666,
+          "units": 2175
+        },
+        {
+          "sku": "LB-MOI-SPF",
+          "product": "Moisturizer SPF 30",
+          "sales": 59546,
+          "units": 2233
+        },
+        {
+          "sku": "LB-SHA-BAR",
+          "product": "Shampoo Bar",
+          "sales": 48720,
+          "units": 3133
+        },
+        {
+          "sku": "LB-DEO-SEN",
+          "product": "Sensitive Deodorant",
+          "sales": 43983,
+          "units": 3300
+        },
+        {
+          "sku": "LB-CLN-GEL",
+          "product": "Gentle Cleanser",
+          "sales": 39246,
+          "units": 1963
+        }
+      ]
+    },
+    {
+      "channel": "Target",
+      "products": [
+        {
+          "sku": "LB-VC-SER",
+          "product": "Vitamin C Serum 30ml",
+          "sales": 108265,
+          "units": 3482
+        },
+        {
+          "sku": "LB-MOI-SPF",
+          "product": "Moisturizer SPF 30",
+          "sales": 95274,
+          "units": 3575
+        },
+        {
+          "sku": "LB-SHA-BAR",
+          "product": "Shampoo Bar",
+          "sales": 77951,
+          "units": 5014
+        },
+        {
+          "sku": "LB-DEO-SEN",
+          "product": "Sensitive Deodorant",
+          "sales": 70373,
+          "units": 5282
+        },
+        {
+          "sku": "LB-CLN-GEL",
+          "product": "Gentle Cleanser",
+          "sales": 62794,
+          "units": 3142
+        }
+      ]
+    },
+    {
+      "channel": "Walmart",
+      "products": [
+        {
+          "sku": "LB-VC-SER",
+          "product": "Vitamin C Serum 30ml",
+          "sales": 284197,
+          "units": 9145
+        },
+        {
+          "sku": "LB-MOI-SPF",
+          "product": "Moisturizer SPF 30",
+          "sales": 250094,
+          "units": 9389
+        },
+        {
+          "sku": "LB-SHA-BAR",
+          "product": "Shampoo Bar",
+          "sales": 204622,
+          "units": 13169
+        },
+        {
+          "sku": "LB-DEO-SEN",
+          "product": "Sensitive Deodorant",
+          "sales": 184728,
+          "units": 13870
+        },
+        {
+          "sku": "LB-CLN-GEL",
+          "product": "Gentle Cleanser",
+          "sales": 164834,
+          "units": 8251
+        }
+      ]
+    }
+  ]
 }
