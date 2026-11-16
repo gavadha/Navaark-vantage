@@ -9,6 +9,8 @@
   var channelFilter = "All";
   var chart = null;
   var state = { config: null, data: null, brands: [] };
+  // Exceptions table sort state. key null = the data order (highest-impact first).
+  var excSort = { key: null, dir: 1 };
 
   function $(id) { return document.getElementById(id); }
   function fmtMoney(n) {
@@ -163,10 +165,59 @@
     }).join("");
   }
 
+  // Exceptions table: sortable columns + CSV export of the displayed rows.
+  function weekNum(w) {
+    var m = /W(\d+)/.exec(String(w || ""));
+    return m ? parseInt(m[1], 10) : 0;
+  }
+  function excValue(e, key) {
+    return key === "week" ? weekNum(e.week) : String(e[key] == null ? "" : e[key]);
+  }
+  function sortedExceptions() {
+    var rows = state.data.exceptions.slice();
+    if (!excSort.key) return rows; // default order: highest-impact first, as in data.json
+    var key = excSort.key, dir = excSort.dir;
+    rows.sort(function (a, b) {
+      var va = excValue(a, key), vb = excValue(b, key);
+      var cmp = (typeof va === "number" && typeof vb === "number")
+        ? va - vb
+        : String(va).localeCompare(String(vb));
+      return cmp * dir;
+    });
+    return rows;
+  }
   function renderExceptions() {
-    $("exceptions-body").innerHTML = state.data.exceptions.map(function (e) {
+    $("exceptions-body").innerHTML = sortedExceptions().map(function (e) {
       return "<tr><td>" + e.sku + "</td><td>" + e.product + "</td><td>" + e.channel + "</td><td>" + e.week + "</td><td>" + e.issue + "</td><td>" + e.action + "</td></tr>";
     }).join("");
+    var heads = document.querySelectorAll("#exceptions-table th[data-sort-key]");
+    Array.prototype.forEach.call(heads, function (th) {
+      var ind = th.querySelector(".sort-ind");
+      if (ind) ind.textContent = th.dataset.sortKey === excSort.key ? (excSort.dir === 1 ? "▲" : "▼") : "";
+    });
+  }
+  function setExcSort(key) {
+    if (excSort.key === key) { excSort.dir = -excSort.dir; }
+    else { excSort.key = key; excSort.dir = 1; }
+    renderExceptions();
+  }
+  function csvEscape(v) {
+    var s = String(v == null ? "" : v);
+    return /[",\n\r]/.test(s) ? '"' + s.replace(/"/g, '""') + '"' : s;
+  }
+  function downloadExceptionsCsv() {
+    var header = ["SKU", "Product", "Channel", "Week", "Issue", "Next action"];
+    var lines = [header.map(csvEscape).join(",")];
+    sortedExceptions().forEach(function (e) {
+      lines.push([e.sku, e.product, e.channel, e.week, e.issue, e.action].map(csvEscape).join(","));
+    });
+    var blob = new Blob([lines.join("\r\n")], { type: "text/csv;charset=utf-8" });
+    var a = document.createElement("a");
+    a.href = URL.createObjectURL(blob);
+    a.download = "vantage-exceptions-" + brandSlug + ".csv";
+    document.body.appendChild(a);
+    a.click();
+    setTimeout(function () { URL.revokeObjectURL(a.href); a.remove(); }, 100);
   }
 
   function renderChanges() {
@@ -215,6 +266,14 @@
   document.querySelectorAll(".tab").forEach(function (b) {
     b.addEventListener("click", function () { setTab(b.dataset.tab); });
   });
+
+  // Exceptions table: click a header to sort (click again to reverse),
+  // Download CSV exports the rows in the order currently displayed.
+  document.querySelectorAll("#exceptions-table th[data-sort-key]").forEach(function (th) {
+    th.addEventListener("click", function () { setExcSort(th.dataset.sortKey); });
+  });
+  var excCsvBtn = $("exceptions-csv");
+  if (excCsvBtn) excCsvBtn.addEventListener("click", downloadExceptionsCsv);
 
   loadJSON("brands/index.json").then(function (idx) {
     state.brands = idx.brands;

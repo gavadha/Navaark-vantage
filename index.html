@@ -66,10 +66,13 @@
     </div>
 
     <div class="card">
-      <h2>Exceptions — SKU × channel × week</h2>
+      <div class="card-head">
+        <h2>Exceptions — SKU × channel × week</h2>
+        <button type="button" id="exceptions-csv" class="btn-sm">Download CSV</button>
+      </div>
       <p class="muted">Sortable in a spreadsheet export; in the demo, the highest-impact exceptions are listed first.</p>
-      <table>
-        <thead><tr><th>SKU</th><th>Product</th><th>Channel</th><th>Week</th><th>Issue</th><th>Next action</th></tr></thead>
+      <table id="exceptions-table">
+        <thead><tr><th data-sort-key="sku" class="sortable">SKU <span class="sort-ind" aria-hidden="true"></span></th><th data-sort-key="product" class="sortable">Product <span class="sort-ind" aria-hidden="true"></span></th><th data-sort-key="channel" class="sortable">Channel <span class="sort-ind" aria-hidden="true"></span></th><th data-sort-key="week" class="sortable">Week <span class="sort-ind" aria-hidden="true"></span></th><th data-sort-key="issue" class="sortable">Issue <span class="sort-ind" aria-hidden="true"></span></th><th data-sort-key="action" class="sortable">Next action <span class="sort-ind" aria-hidden="true"></span></th></tr></thead>
         <tbody id="exceptions-body"></tbody>
       </table>
     </div>

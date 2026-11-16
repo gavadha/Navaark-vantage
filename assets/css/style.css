@@ -34,6 +34,12 @@ button { cursor:pointer; }
 .up { color:var(--green); } .down { color:var(--red); } .flat { color:var(--muted); }
 .card { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:16px 18px; margin:0 0 18px; }
 .card h2 { font-size:18px; margin:0 0 6px; }
+.card-head { display:flex; justify-content:space-between; align-items:center; gap:12px; flex-wrap:wrap; margin-bottom:6px; }
+.card-head h2 { margin:0; }
+.btn-sm { padding:6px 10px; font-size:13px; }
+th.sortable { cursor:pointer; white-space:nowrap; }
+th.sortable:hover { color:var(--ink); }
+th .sort-ind { font-size:11px; margin-left:2px; }
 .card h3 { font-size:15px; margin:18px 0 8px; }
 .card p { margin:6px 0; }
 .muted { color:var(--muted); font-size:13px; }
