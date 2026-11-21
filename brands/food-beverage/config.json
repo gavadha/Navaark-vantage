@@ -3,7 +3,7 @@
   "brand_name": "Golden Hour Snacks",
   "display_name": "Golden Hour Snacks",
   "category": "Food & Beverage",
-  "tagline": "Better-for-you snacks — protein bars, sparkling water, prebiotic soda",
+  "tagline": "Better-for-you snacks \u2014 protein bars, sparkling water, prebiotic soda",
   "currency": "USD",
   "date_range": "2025-11-17 to 2026-11-15",
   "data_as_of": "2026-11-15",
@@ -25,6 +25,16 @@
       "stores": 900
     },
     {
+      "name": "Whole Foods",
+      "color": "#00674b",
+      "stores": 500
+    },
+    {
+      "name": "Sprouts",
+      "color": "#7ab648",
+      "stores": 400
+    },
+    {
       "name": "DTC",
       "color": "#0e7c7b",
       "stores": 1
@@ -40,7 +50,9 @@
     "Amazon": "#ff9900",
     "Target": "#cc0000",
     "DTC": "#0e7c7b",
-    "Distributor": "#6b7280"
+    "Distributor": "#6b7280",
+    "Whole Foods": "#00674b",
+    "Sprouts": "#7ab648"
   },
   "kpis": [
     "total_sales",
@@ -53,42 +65,42 @@
   "products": [
     {
       "sku": "GH-PB-CHO",
-      "name": "Protein Bar — Chocolate",
+      "name": "Protein Bar \u2014 Chocolate",
       "price": 3.49
     },
     {
       "sku": "GH-PB-PB",
-      "name": "Protein Bar — Peanut Butter",
+      "name": "Protein Bar \u2014 Peanut Butter",
       "price": 3.49
     },
     {
       "sku": "GH-PB-BER",
-      "name": "Protein Bar — Berry",
+      "name": "Protein Bar \u2014 Berry",
       "price": 3.49
     },
     {
       "sku": "GH-SW-LIM",
-      "name": "Sparkling Water — Lime",
+      "name": "Sparkling Water \u2014 Lime",
       "price": 1.99
     },
     {
       "sku": "GH-SW-BER",
-      "name": "Sparkling Water — Berry",
+      "name": "Sparkling Water \u2014 Berry",
       "price": 1.99
     },
     {
       "sku": "GH-PS-COL",
-      "name": "Prebiotic Soda — Cola",
+      "name": "Prebiotic Soda \u2014 Cola",
       "price": 2.49
     },
     {
       "sku": "GH-PS-GIN",
-      "name": "Prebiotic Soda — Ginger",
+      "name": "Prebiotic Soda \u2014 Ginger",
       "price": 2.49
     },
     {
       "sku": "GH-TM-MIX",
-      "name": "Trail Mix — Nut Clusters",
+      "name": "Trail Mix \u2014 Nut Clusters",
       "price": 4.99
     }
   ]

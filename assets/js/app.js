@@ -159,8 +159,8 @@
   }
 
   // Channel drill-down: click a scorecard row to see that channel's stores
-  // (Walmart / Target) or top products (Amazon / DTC / Distributor).
-  function isStoreChannel(ch) { return ch === "Walmart" || ch === "Target"; }
+  // (Walmart / Target / Whole Foods / Sprouts) or top products (Amazon / DTC / Distributor).
+  function isStoreChannel(ch) { return ch === "Walmart" || ch === "Target" || ch === "Whole Foods" || ch === "Sprouts"; }
   function drillRows(channel) {
     var rows = (state.data.stores || []).filter(function (s) { return s.channel === channel; }).slice();
     var key = drillSort.key, dir = drillSort.dir;

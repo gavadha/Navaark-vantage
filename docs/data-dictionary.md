@@ -13,7 +13,7 @@ One model for every channel, every brand. Map each source to this model first, t
 | `week` | int | 1..52, sequential in the brand's date range |
 | `walmart_week` | string | e.g. `FY26-W32` — Walmart fiscal week label |
 | `week_start` | date (ISO) | First day of that week |
-| `channel` | string | Walmart, Amazon, Target, DTC, Distributor |
+| `channel` | string | Walmart, Amazon, Target, Whole Foods, Sprouts, DTC, Distributor |
 | `sales` | $ | Net sales in that week, that channel |
 | `prior_year_sales` | $ | Same week, prior year — for YoY |
 | `units` | int | Units sold |
