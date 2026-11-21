@@ -335,16 +335,263 @@
       avg(rows.map(function (r) { return r.otif_pct; })).toFixed(1) + "%. Distributor movement is shipments out of the distributor, not register sales.";
   }
 
+  /* ---------- Signals view: decisions, not channels ---------- */
+  var signalsChart = null;
+
+  function med(arr) {
+    var s = arr.slice().sort(function (a, b) { return a - b; });
+    if (!s.length) return null;
+    var m = Math.floor(s.length / 2);
+    return s.length % 2 ? s[m] : (s[m - 1] + s[m]) / 2;
+  }
+  // Swap em dashes in data-derived text for plain hyphens in this view.
+  function cleanDash(s) {
+    return String(s == null ? "" : s).replace(/\s*\u2014\s*/g, " - ");
+  }
+  function sigPill(kind, text) {
+    return "<span class='pill " + kind + "'>" + text + "</span>";
+  }
+  function sigRow(name, defn, value, bar, status) {
+    return "<tr><td><strong>" + name + "</strong><br><span class='muted'>" + defn + "</span></td>" +
+      "<td class='num'>" + value + "</td><td>" + bar + "</td><td>" + status + "</td></tr>";
+  }
+  function sigTable(rows) {
+    return "<table><thead><tr><th>Signal</th><th class='num'>Value</th><th>Sample bar</th><th>Status</th></tr></thead><tbody>" + rows.join("") + "</tbody></table>";
+  }
+  function sigCard(title, roles, bodyHtml, footHtml) {
+    return "<div class='card'><h2>" + title + "</h2><p class='muted'>" + roles + "</p>" + bodyHtml +
+      (footHtml ? "<p class='muted'>" + footHtml + "</p>" : "") + "</div>";
+  }
+
+  function renderSignals() {
+    var host = $("signals-body");
+    if (!host || !state.config || !state.data) return;
+    var c = state.config, d = state.data;
+    var weeks = [];
+    d.weekly.forEach(function (r) { if (weeks.indexOf(r.week) === -1) weeks.push(r.week); });
+    weeks.sort(function (a, b) { return a - b; });
+    var nWeeks = weeks.length || 1;
+    var sales = d.weekly.reduce(function (a, r) { return a + r.sales; }, 0);
+    var prior = d.weekly.reduce(function (a, r) { return a + r.prior_year_sales; }, 0);
+    var ded = d.weekly.reduce(function (a, r) { return a + r.deductions; }, 0);
+    var inStock = avg(d.weekly.map(function (r) { return r.in_stock_pct; }));
+    var storeChannels = c.channels.filter(function (ch) { return ch.stores > 1; });
+    var storeDoors = storeChannels.reduce(function (a, ch) { return a + ch.stores; }, 0);
+    var profitPerDoor = storeDoors ? (sales * 0.45 - ded) / storeDoors : null;
+    var allInRatio = sales ? (0.55 + 0.08 + 0.03 + ded / sales) * 100 : null;
+    var ordersBooks = sales ? sales / nWeeks * 9 : null;
+    var na = sigPill("na", "No data yet");
+    var pass = sigPill("ok", "Pass");
+    var watch = sigPill("risk", "Watch");
+
+    /* --- Section 1: Will we keep our doors? --- */
+    var skuBar = Math.round(med(d.products.map(function (p) { return p.velocity_upsw; })) || 0);
+    var skuAbove = d.products.filter(function (p) { return p.velocity_upsw >= skuBar; }).length;
+    var skuRows = d.products.map(function (p) {
+      var above = p.velocity_upsw >= skuBar;
+      return "<tr><td>" + cleanDash(p.name) + " <span class='muted'>(" + p.sku + ")</span></td>" +
+        "<td class='num'>" + p.velocity_upsw.toFixed(1) + "</td>" +
+        "<td class='num'>" + skuBar.toFixed(1) + "</td>" +
+        "<td>" + (above ? sigPill("ok", "Above the bar") : sigPill("risk", "Below the bar")) + "</td></tr>";
+    }).join("");
+    var stockouts = (d.exceptions || []).filter(function (e) { return /stockout/i.test(e.issue || ""); }).length;
+    var s1 = sigTable([
+      sigRow("Break-even velocity", "The minimum units a SKU must sell per store per week to survive the next reset.", skuAbove + " of " + d.products.length + " SKUs above the bar", skuBar.toFixed(1) + " units per store per week", skuAbove === d.products.length ? pass : (skuAbove === 0 ? watch : sigPill("", "Mixed"))),
+      sigRow("Door persistency", "Share of doors that stocked you at launch and still stock you 12 months later.", "87% still stocking after 12 months", "85% still stocking you after 12 months", pass),
+      sigRow("Repeat stockout rate", "Share of stores that go out of stock again within 30 days of a restock.", "12% of stores", "Under 10% of stores", watch),
+      sigRow("Time to velocity bar", "Days from launch to hitting the break-even velocity.", "6 weeks from launch", "Under 8 weeks from launch", pass),
+      sigRow("Launch curve", "Cumulative sales by week after launch, plotted against the plan.", "94% of plan at week 8", "On plan by week 8", pass),
+      sigRow("Shelf load factor", "Average facings per store. Facing counts in real life, sample value shown.", "1.8 facings per store", "2 or more facings", watch)
+    ]);
+    s1 += "<h3>Break-even velocity by SKU</h3>" +
+      "<table><thead><tr><th>SKU</th><th class='num'>Velocity</th><th class='num'>Bar</th><th>Status</th></tr></thead><tbody>" + skuRows + "</tbody></table>";
+    s1 += "<h3>Launch curve</h3><p class='muted'>No new launch in this sample period. The row above shows a sample launch reading, 94% of plan at week 8. The chart below shows the " + nWeeks + "-week cumulative curve against last year. It is the same shape: with a real launch, the same chart plots the first 8 weeks against plan.</p>" +
+      "<canvas id='launch-curve-chart' height='120' aria-label='Cumulative sales curve chart'></canvas>";
+    var s1foot = "Sample bars for velocity are set from the median velocity in this sample. With your data, the bar comes from the buyer's reset rule." +
+      (stockouts ? " Closest live evidence of a repeat stockout problem in this sample: " + stockouts + " stockout exception" + (stockouts === 1 ? "" : "s") + " in the exceptions table." : "");
+
+    /* --- Section 2: Are we growing or just spreading? --- */
+    var growth = prior ? (sales / prior * 100) : null;
+    var chGrowth = c.channels.map(function (ch) {
+      var rs = d.weekly.filter(function (r) { return r.channel === ch.name; });
+      var s = rs.reduce(function (a, r) { return a + r.sales; }, 0);
+      var p = rs.reduce(function (a, r) { return a + r.prior_year_sales; }, 0);
+      var g = p ? (s / p - 1) * 100 : 0;
+      return "<tr><td><span class='dot' style='background:" + (c.channel_colors[ch.name] || "#666") + "'></span>" + ch.name + "</td>" +
+        "<td class='num'>" + fmtMoney(s) + "</td><td class='num'>" + fmtMoney(p) + "</td>" +
+        "<td class='num " + (g >= 0 ? "up" : "down") + "'>" + (g >= 0 ? "+" : "") + g.toFixed(1) + "%</td></tr>";
+    }).join("");
+    var revPerDoor = storeDoors ? sales / storeDoors : null;
+    var priorPerDoor = storeDoors ? prior / storeDoors : null;
+    var doorRows = storeChannels.map(function (ch) {
+      var s = d.weekly.filter(function (r) { return r.channel === ch.name; }).reduce(function (a, r) { return a + r.sales; }, 0);
+      return "<tr><td>" + ch.name + "</td><td class='num'>" + fmtMoney(s) + "</td><td class='num'>" + fmtNum(ch.stores) + "</td><td class='num'>" + fmtMoney(s / ch.stores) + "</td></tr>";
+    }).join("");
+    var s2 = sigTable([
+      sigRow("Same-door growth", "Revenue from doors you already had, this year vs last year. Above 100% means the base grows on its own.", growth == null ? "Needs prior year sales" : growth.toFixed(1) + "%", "100% or above", growth != null && growth >= 100 ? pass : watch),
+      sigRow("Door revenue retention", "Revenue kept from doors you still have, ignoring any growth from them.", "96% kept", "95% or above kept", pass),
+      sigRow("Revenue per available door", "Total revenue divided by doors available, sold or not.", revPerDoor == null ? "No store doors in this sample" : fmtMoney(revPerDoor) + " per door", priorPerDoor == null ? "No prior year to compare" : "Above last year: " + fmtMoney(priorPerDoor) + " per door", revPerDoor != null && priorPerDoor != null && revPerDoor >= priorPerDoor ? pass : watch),
+      sigRow("Profit per available door", "Gross profit per door after trade spend and deductions.", profitPerDoor == null ? "No store doors in this sample" : fmtMoney(profitPerDoor) + " per door", "Positive and rising year over year", profitPerDoor != null && profitPerDoor > 0 ? pass : watch),
+      sigRow("Orders on the books", "Future purchase orders already placed. Your records or EDI in real life, sample value shown.", ordersBooks == null ? "Needs sales" : fmtMoney(ordersBooks) + ", covers 9 weeks of forecast", "Covers 8 weeks of forecast", pass)
+    ]);
+    s2 += "<h3>Same-door growth by channel</h3><table><thead><tr><th>Channel</th><th class='num'>Sales</th><th class='num'>Prior year</th><th class='num'>Growth</th></tr></thead><tbody>" + chGrowth + "</tbody></table>";
+    s2 += "<h3>Revenue per available door by store channel</h3><table><thead><tr><th>Channel</th><th class='num'>Sales</th><th class='num'>Doors</th><th class='num'>Revenue per door</th></tr></thead><tbody>" + doorRows + "</tbody></table>";
+    s2 += "<h3>Where to grow next: the census flag (sample)</h3>" +
+      "<p>This is the demographic side only, from the census run on 8 Northwest Arkansas stores (ACS 2024 5-year). It shows who lives near each store. Joining it with your store sales flags under-served stores, where the area looks strong but your velocity is low. The velocity comparison needs your store sales, so no comparison is shown here.</p>" +
+      "<table><thead><tr><th>Store area</th><th class='num'>People nearby</th><th class='num'>Median age</th><th class='num'>Median income</th><th class='num'>Hispanic share</th></tr></thead><tbody>" +
+      "<tr><td>Bentonville, AR (Walmart)</td><td class='num'>4,960</td><td class='num'>35.3</td><td class='num'>$102,074</td><td class='num'>12.9%</td></tr>" +
+      "<tr><td>Rogers, AR (Walmart)</td><td class='num'>6,375</td><td class='num'>34.6</td><td class='num'>$75,293</td><td class='num'>42.1%</td></tr>" +
+      "<tr><td>Springdale, AR (Walmart)</td><td class='num'>4,659</td><td class='num'>41.2</td><td class='num'>$76,815</td><td class='num'>37.2%</td></tr>" +
+      "<tr><td>Fayetteville, AR (Walmart)</td><td class='num'>3,933</td><td class='num'>31.3</td><td class='num'>$61,983</td><td class='num'>14.6%</td></tr>" +
+      "<tr><td>Siloam Springs, AR (Walmart)</td><td class='num'>3,736</td><td class='num'>37.3</td><td class='num'>$79,676</td><td class='num'>25.5%</td></tr>" +
+      "<tr><td>Bella Vista, AR (Walmart)</td><td class='num'>4,865</td><td class='num'>45.4</td><td class='num'>$102,935</td><td class='num'>4.4%</td></tr>" +
+      "<tr><td>Centerton, AR (Walmart)</td><td class='num'>14,490</td><td class='num'>30.4</td><td class='num'>$127,450</td><td class='num'>12.7%</td></tr>" +
+      "<tr><td>Lowell, AR (Target)</td><td class='num'>5,723</td><td class='num'>30.7</td><td class='num'>$89,795</td><td class='num'>47.9%</td></tr>" +
+      "</tbody></table>";
+
+    /* --- Section 3: Are we keeping the money? --- */
+    var netReal = sales ? (sales - ded) / sales * 100 : null;
+    var prodSales = d.products.reduce(function (a, p) { return a + p.sales; }, 0);
+    var prodUnits = d.products.reduce(function (a, p) { return a + p.units; }, 0);
+    var realised = prodUnits ? prodSales / prodUnits : null;
+    var listPrice = prodUnits ? d.products.reduce(function (a, p) { return a + p.price * p.units; }, 0) / prodUnits : null;
+    var realisedPct = (realised != null && listPrice) ? realised / listPrice * 100 : null;
+    var costPerDoor = storeDoors ? ded / storeDoors : null;
+    var dedRows = c.channels.map(function (ch) {
+      var rs = d.weekly.filter(function (r) { return r.channel === ch.name; });
+      var s = rs.reduce(function (a, r) { return a + r.sales; }, 0);
+      var dd = rs.reduce(function (a, r) { return a + r.deductions; }, 0);
+      return "<tr><td>" + ch.name + "</td><td class='num'>" + fmtMoney(dd) + "</td><td class='num'>" + (s ? (dd / s * 100).toFixed(2) : "0.00") + "%</td></tr>";
+    }).join("");
+    var s3 = sigTable([
+      sigRow("Net realisation rate", "Cash actually kept after deductions, chargebacks and markdown money, as a share of invoiced sales.", netReal == null ? "Needs sales and deductions" : netReal.toFixed(1) + "% kept", "95% or above kept", netReal != null && netReal >= 95 ? pass : watch),
+      sigRow("Realised price per unit", "Average price actually received per unit, after promotions and discounts.", realised == null ? "Needs sales and units" : "$" + realised.toFixed(2) + " per unit, " + (realisedPct == null ? "" : realisedPct.toFixed(0) + "% of list"), "Within 5% of list price", realisedPct != null && realisedPct >= 95 ? pass : watch),
+      sigRow("Cost per door served", "Trade spend, logistics and deductions per door.", costPerDoor == null ? "No store doors in this sample" : "$" + costPerDoor.toFixed(2) + " per door, deductions only", "Under $50 per door, deductions only", costPerDoor != null && costPerDoor < 50 ? pass : watch),
+      sigRow("All-in channel ratio", "Cost of goods plus trade spend plus deductions plus logistics, divided by sales, per channel. Below 100% the channel makes money.", allInRatio == null ? "Needs sales" : allInRatio.toFixed(0) + "% of sales", "Below 100%", allInRatio != null && allInRatio < 100 ? pass : watch),
+      sigRow("Deductions", "Retailer and distributor deductions in the period, as dollars and as a share of sales.", fmtMoney(ded) + ", " + (sales ? (ded / sales * 100).toFixed(2) : "0.00") + "% of sales", "Under 1.5% of sales", sales && ded / sales < 0.015 ? pass : watch),
+      sigRow("Cash lockup", "Days from shipment to cash in the bank. Your records or EDI in real life, sample value shown.", "41 days", "Under 45 days", pass),
+      sigRow("Deduction recovery rate", "Share of disputed deductions won back. Your records in real life, sample value shown.", "48% recovered", "60% or above", watch)
+    ]);
+    s3 += "<h3>Deductions by channel</h3><p class='muted'>This is the one slice of the all-in channel ratio the sample data can show. Cost of goods, trade spend and logistics are not in the sample data.</p><table><thead><tr><th>Channel</th><th class='num'>Deductions</th><th class='num'>% of sales</th></tr></thead><tbody>" + dedRows + "</tbody></table>";
+
+    /* --- Section 4: Are we winning new doors? --- */
+    var anchorRows = ["Walmart", "Target"].map(function (a) {
+      var ch = null;
+      c.channels.forEach(function (x) { if (x.name === a) ch = x; });
+      return "<tr><td>" + a + "</td><td class='num'>" + (ch ? fmtNum(ch.stores) : "0") + "</td><td>" + (ch ? sigPill("ok", "Landed") : sigPill("risk", "Not landed")) + "</td></tr>";
+    }).join("");
+    var anchors = ["Walmart", "Target"].filter(function (a) {
+      return c.channels.some(function (ch) { return ch.name === a; });
+    }).length;
+    var s4 = sigTable([
+      sigRow("Buyer conversion rate", "Share of buyer meetings that become listings, and listings that become reorders.", "1 in 3 meetings (4 of 12)", "1 in 3 meetings becomes a listing", pass),
+      sigRow("Sample-to-listing rate", "Share of samples or sell stories sent to buyers that become listings.", "1 in 4 samples (3 of 12)", "1 in 4 samples becomes a listing", pass),
+      sigRow("Gateway doors", "Whether you landed the anchor retailers, Walmart and Target, in year one.", anchors + " of 2 anchors", "Both anchors in year one", anchors === 2 ? pass : watch),
+      sigRow("Launch on-time rate", "Share of launches that hit shelves on the planned date.", "92% on time (11 of 12)", "90% on time", pass)
+    ]);
+    s4 += "<h3>Anchor retailers</h3><table><thead><tr><th>Retailer</th><th class='num'>Doors</th><th>Status</th></tr></thead><tbody>" + anchorRows + "</tbody></table>";
+
+    /* --- Section 5: What do we do this week? --- */
+    var stores = d.stores || [];
+    var storeBar = stores.length ? Math.round(med(stores.map(function (s) { return s.velocity_upsw; })) || 0) : null;
+    var sigStores = storeBar == null ? [] : stores.filter(function (s) { return s.velocity_upsw >= storeBar; });
+    var storeRows = stores.slice().sort(function (a, b) { return b.velocity_upsw - a.velocity_upsw; }).map(function (s) {
+      var above = storeBar != null && s.velocity_upsw >= storeBar;
+      return "<tr><td>" + s.name + "</td><td>" + s.channel + "</td><td class='num'>" + s.velocity_upsw.toFixed(1) + "</td><td>" + (above ? sigPill("ok", "Signal door") : sigPill("risk", "Below the bar")) + "</td></tr>";
+    }).join("");
+    var walkAway = 100 - inStock;
+    var priceBySku = {};
+    c.products.forEach(function (p) { priceBySku[p.sku] = p.price; });
+    var queue = [];
+    d.products.filter(function (p) { return p.weeks_of_supply < 2; }).forEach(function (p) {
+      queue.push({ cause: cleanDash(p.name) + " has " + p.weeks_of_supply.toFixed(1) + " weeks of supply", dollars: p.sales / nWeeks, dollarsText: fmtMoney(p.sales / nWeeks), next: "Raise the next order now and confirm stock at the DC", owner: "Ops (you)" });
+    });
+    (d.exceptions || []).forEach(function (e) {
+      if (e.units_lost_est && e.units_lost_est > 0) {
+        var price = priceBySku[e.sku] || realised || 0;
+        queue.push({ cause: cleanDash(e.issue), dollars: e.units_lost_est * price, dollarsText: fmtMoney(e.units_lost_est * price), next: cleanDash(e.action), owner: e.channel === "Amazon" ? "You" : "Ops (you)" });
+      } else if (/deduction/i.test(e.issue || "")) {
+        queue.push({ cause: cleanDash(e.issue), dollars: -1, dollarsText: "Unknown until PO detail is pulled", next: cleanDash(e.action), owner: "Finance (you)" });
+      }
+    });
+    queue.sort(function (a, b) { return b.dollars - a.dollars; });
+    var queueRows = queue.length ? queue.map(function (q) {
+      return "<tr><td>" + q.cause + "</td><td class='num'>" + q.dollarsText + "</td><td>" + q.next + "</td><td>" + q.owner + "</td></tr>";
+    }).join("") : "<tr><td colspan='4'>No actions in this sample.</td></tr>";
+    var s5 = sigTable([
+      sigRow("Signal doors", "Doors where velocity is already above the break-even bar.", storeBar == null ? "No store sample for this brand" : sigStores.length + " of " + stores.length + " sample stores above the bar", storeBar == null ? "No store sample" : storeBar.toFixed(1) + " units per store per week", storeBar == null ? na : sigPill("", "Mixed")),
+      sigRow("Walk-away rate", "Share of shoppers who came for your product and left without it because the shelf was empty.", walkAway.toFixed(1) + "% (estimated)", "Under 5%", walkAway < 5 ? pass : watch),
+      sigRow("Signal-to-action time", "Days from spotting a problem to the fix.", "9 days", "Under 7 days from signal to fix", watch),
+      sigRow("PO cut rate", "Share of ordered units the buyer cut or cancelled. Your records or EDI in real life, sample value shown.", "4% of units cut", "Under 5%", pass)
+    ]);
+    s5 += "<h3>Signal doors: sample stores by velocity</h3><table><thead><tr><th>Store</th><th>Channel</th><th class='num'>Velocity</th><th>Status</th></tr></thead><tbody>" + storeRows + "</tbody></table>";
+    s5 += "<h3>Action queue: what to do this week</h3><table><thead><tr><th>Cause</th><th class='num'>Dollars at stake</th><th>Next step</th><th>Owner</th></tr></thead><tbody>" + queueRows + "</tbody></table>";
+
+    /* --- Where the numbers come from --- */
+    var later = [
+      ["Cash lockup", "Your records or EDI, from shipment to cash in the bank."],
+      ["Deduction recovery rate", "Your records, disputes and recoveries by PO."],
+      ["Orders on the books", "Your records or EDI, future purchase orders."],
+      ["PO cut rate", "Your records or EDI, orders cancelled or cut by the buyer."],
+      ["Shelf load factor", "Facing counts per store."]
+    ].map(function (r) {
+      return "<tr><td><strong>" + r[0] + "</strong></td><td>" + r[1] + "</td></tr>";
+    }).join("");
+    var laterCard = "<div class='card'><h2>Where the numbers come from</h2><p class='muted'>These five signals need data the portals do not give you. The view shows sample values for them. With your data, they come from the source listed here.</p><table><thead><tr><th>Signal</th><th>Real source</th></tr></thead><tbody>" + later + "</tbody></table></div>";
+
+    var intro = "<div class='card'><h2>Signals: decisions, not channels</h2>" +
+      "<p>The other tabs show the business by channel. This tab shows it by the decision you have to make. Each section answers one question, and every signal has a bar, a line that says good enough.</p>" +
+      "<p>Bars here are sample bars, set from this sample data or from a sensible starting point. With your data, each bar comes from your buyer's reset rule or your own history.</p>" +
+      "<p class='muted'>Each section pairs one lagging signal, what already happened, with leading signals, what predicts it, and one guardrail, what catches side effects. Signals use all channels, whatever the channel filter says. Sample data in the Vantage framework. No client names, testimonials or specific client results are shown in this demo.</p></div>";
+
+    host.innerHTML = intro +
+      sigCard("1. Will we keep our doors?", "Lagging: door persistency. Leading: break-even velocity, time to velocity bar, launch curve. Guardrail: repeat stockout rate.", s1, s1foot) +
+      sigCard("2. Are we growing or just spreading?", "Lagging: same-door growth. Leading: revenue per available door, profit per available door, census flag. Guardrail: door revenue retention.", s2, "Same-door growth here uses year over year sales for the same channels. With your data, only doors open in both years count.") +
+      sigCard("3. Are we keeping the money?", "Lagging: net realisation rate. Leading: realised price per unit, cost per door served, deductions. Guardrail: all-in channel ratio.", s3, "Net realisation here covers deductions only. Chargebacks and markdown money are not in the sample data, so the real number will be lower. Realised price equals list price in this sample, so the sample shows no promo discount. Cost per door is deductions only for the same reason. Profit per door and the all-in ratio use sample cost assumptions: COGS 55% of sales, trade spend 8%, logistics 3%. With your data, they use your real costs.") +
+      sigCard("4. Are we winning new doors?", "Lagging: buyer conversion rate. Leading: sample-to-listing rate, gateway doors. Guardrail: launch on-time rate.", s4, "Buyer, sample and launch records here are sample values. With your data, they come from your records and HubSpot, not from portal data.") +
+      sigCard("5. What do we do this week?", "Lagging: walk-away rate. Leading: signal doors, action queue. Guardrail: signal-to-action time.", s5, "Walk-away rate is estimated from the in-stock rate, 100 minus in-stock %. It counts every out-of-stock moment as a lost shopper, so treat it as an upper bound. Dollars at stake is one week of sales for stockout-risk SKUs, and units lost times price for past exceptions.") +
+      laterCard;
+  }
+
+  function drawLaunchCurve() {
+    var ctx = $("launch-curve-chart");
+    if (!ctx || typeof Chart === "undefined" || !state.data) return;
+    if (signalsChart) { signalsChart.destroy(); signalsChart = null; }
+    var weeks = [];
+    state.data.weekly.forEach(function (r) { if (weeks.indexOf(r.week) === -1) weeks.push(r.week); });
+    weeks.sort(function (a, b) { return a - b; });
+    var cum = [], cumP = [], t = 0, tp = 0;
+    weeks.forEach(function (w) {
+      state.data.weekly.forEach(function (r) { if (r.week === w) { t += r.sales; tp += r.prior_year_sales; } });
+      cum.push(Math.round(t)); cumP.push(Math.round(tp));
+    });
+    signalsChart = new Chart(ctx, {
+      type: "line",
+      data: { labels: weeks.map(function (w) { return "W" + w; }), datasets: [
+        { label: "This year, cumulative", data: cum, borderColor: "#0e7c7b", backgroundColor: "#0e7c7b", tension: 0.25, borderWidth: 2, pointRadius: 0 },
+        { label: "Prior year, cumulative", data: cumP, borderColor: "#94a3b8", backgroundColor: "#94a3b8", borderDash: [6, 4], tension: 0.25, borderWidth: 2, pointRadius: 0 }
+      ] },
+      options: { responsive: true, interaction: { mode: "index", intersect: false },
+        scales: { y: { beginAtZero: true, ticks: { callback: function (v) { return "$" + (v / 1000000).toFixed(1) + "M"; } } } },
+        plugins: { legend: { position: "bottom" } } }
+    });
+  }
+
   function renderAll() {
     closeDrill();
+    if (signalsChart) { signalsChart.destroy(); signalsChart = null; }
     renderHeader(); renderKpis(); renderTrend(); renderScorecard();
     renderProducts(); renderExceptions(); renderChanges(); renderForecast(); renderInventoryFinance();
+    renderSignals();
+    var sigPanel = document.querySelector('[data-panel="signals"]');
+    if (sigPanel && sigPanel.style.display !== "none") drawLaunchCurve();
   }
 
   function setTab(name) {
     document.querySelectorAll(".tab").forEach(function (b) { b.classList.toggle("active", b.dataset.tab === name); });
     document.querySelectorAll("[data-panel]").forEach(function (p) { p.style.display = p.dataset.panel === name ? "" : "none"; });
     if (name === "sales" && chart) { chart.resize(); }
+    if (name === "signals") { drawLaunchCurve(); }
   }
   document.querySelectorAll(".tab").forEach(function (b) {
     b.addEventListener("click", function () { setTab(b.dataset.tab); });
@@ -395,6 +642,7 @@
   }).then(function (pair) {
     state.config = pair[0]; state.data = pair[1];
     renderChannelFilter(); renderAll(); setTab("sales");
+    if (window.location.hash === "#signals") setTab("signals");
   }).catch(function (err) {
     document.body.insertAdjacentHTML("beforeend",
       '<div class="wrap"><p style="color:#b91c1c">Could not load this brand: ' + err.message +

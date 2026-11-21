@@ -34,6 +34,7 @@
     <button class="tab active" data-tab="sales">Sales</button>
     <button class="tab" data-tab="inventory">Inventory &amp; Supply Chain</button>
     <button class="tab" data-tab="finance">Finance — OTIF &amp; Deductions</button>
+    <button class="tab" data-tab="signals">Signals</button>
   </nav>
 
   <section data-panel="sales">
@@ -106,6 +107,10 @@
       <p>OTIF = on-time, in-full — the share of orders delivered on time and in full. Deductions are shown as $ and as % of sales, with the reason in the exceptions table (shortage, compliance, damaged / returns). Pull deduction detail by PO before disputing — do not dispute from the dashboard total alone.</p>
       <p class="muted">Distributor movement (UNFI / KeHE) is shipments out of the distributor, not register sales. Never mix it with Walmart / Target sell-through in the same total without labelling it.</p>
     </div>
+  </section>
+
+  <section data-panel="signals" style="display:none">
+    <div id="signals-body"></div>
   </section>
 
   <div class="card">
